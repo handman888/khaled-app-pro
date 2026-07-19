@@ -1,32 +1,19 @@
-'use client';
-
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { getMessages } from '@/lib/i18n';
+import { getMessages, getLocaleDirection } from '@/lib/i18n';
 
-export default function AdminPage({
+export default async function AdminPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const [locale, setLocale] = useState('en');
-  const [messages, setMessages] = useState<any>(null);
-  const [activeTab, setActiveTab] = useState('overview');
-
-  useEffect(() => {
-    params.then(({ locale: loc }) => {
-      setLocale(loc);
-      getMessages(loc as 'en' | 'ar').then(setMessages);
-    });
-  }, [params]);
-
-  if (!messages) return <div className="min-h-screen flex items-center justify-center"><p>Loading...</p></div>;
-
-  const t = messages.admin as Record<string, any> || {};
-  const isRtl = locale === 'ar';
+  const { locale } = await params;
+  const validLocale = locale === 'ar' ? 'ar' : 'en';
+  const messages = await getMessages(validLocale);
+  const direction = getLocaleDirection(validLocale);
+  const isRtl = validLocale === 'ar';
 
   return (
-    <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'}>
+    <html lang={validLocale} dir={direction}>
       <body className="min-h-screen bg-n-50 font-[family-name:var(--font-inter)]">
         {/* Header */}
         <header className="bg-white border-b border-n-200 sticky top-0 z-50">
@@ -42,23 +29,23 @@ export default function AdminPage({
               </div>
               <div>
                 <h1 className="text-lg font-bold text-n-900">
-                  {locale === 'ar' ? 'لوحة التحكم' : 'Admin Dashboard'}
+                  {isRtl ? 'لوحة التحكم' : 'Admin Dashboard'}
                 </h1>
                 <p className="text-xs text-n-500">Smart Design Digital Pro</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <Link
-                href={`/${locale}`}
+                href={`/${validLocale}`}
                 className="rounded-lg border border-n-200 px-4 py-2 text-sm font-medium text-n-700 hover:bg-n-100"
               >
-                {locale === 'ar' ? 'عرض الموقع' : 'View Site'}
+                {isRtl ? 'عرض الموقع' : 'View Site'}
               </Link>
               <Link
-                href={`/${locale}/tools`}
+                href={`/${validLocale}/tools`}
                 className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-accent/90"
               >
-                {locale === 'ar' ? 'الأدوات' : 'Tools'}
+                {isRtl ? 'الأدوات' : 'Tools'}
               </Link>
             </div>
           </div>
@@ -68,21 +55,20 @@ export default function AdminPage({
           {/* Welcome */}
           <div className="mb-8 rounded-2xl bg-gradient-to-r from-accent to-accent-secondary p-8 text-white">
             <h2 className="text-2xl font-bold mb-2">
-              {locale === 'ar' ? `مرحباً، خالد!` : `Welcome, Khaled!`}
+              {isRtl ? 'مرحباً، خالد!' : 'Welcome, Khaled!'}
             </h2>
             <p className="opacity-90">
-              {locale === 'ar' 
-                ? 'هنا يمكنك إدارة موقعك و所有 أدواتك من مكان واحد'
+              {isRtl 
+                ? 'هنا يمكنك إدارة موقعك وجميع أدواتك من مكان واحد'
                 : 'Manage your website and all your tools from one place'}
             </p>
           </div>
 
           {/* Quick Actions */}
           <h3 className="text-lg font-bold text-n-900 mb-4">
-            {locale === 'ar' ? 'إجراءات سريعة' : 'Quick Actions'}
+            {isRtl ? 'إجراءات سريعة' : 'Quick Actions'}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {/* Sanity Studio */}
             <a
               href="https://www.sanity.io/manage"
               target="_blank"
@@ -95,19 +81,18 @@ export default function AdminPage({
                 </div>
                 <div>
                   <h4 className="font-bold text-n-900">
-                    {locale === 'ar' ? 'إدارة المنتجات' : 'Manage Products'}
+                    {isRtl ? 'إدارة المنتجات' : 'Manage Products'}
                   </h4>
                   <p className="text-sm text-n-500">Sanity Studio</p>
                 </div>
               </div>
               <p className="text-sm text-n-600">
-                {locale === 'ar' 
+                {isRtl 
                   ? 'أضف وعدّل المنتجات والأسعار والاختبارات'
                   : 'Add and edit products, prices, and testimonials'}
               </p>
             </a>
 
-            {/* Vercel Dashboard */}
             <a
               href="https://vercel.com/dashboard"
               target="_blank"
@@ -120,19 +105,18 @@ export default function AdminPage({
                 </div>
                 <div>
                   <h4 className="font-bold text-n-900">
-                    {locale === 'ar' ? 'إدارة النشر' : 'Deployment'}
+                    {isRtl ? 'إدارة النشر' : 'Deployment'}
                   </h4>
                   <p className="text-sm text-n-500">Vercel</p>
                 </div>
               </div>
               <p className="text-sm text-n-600">
-                {locale === 'ar' 
+                {isRtl 
                   ? 'راقب النشر وإعدادات الموقع'
                   : 'Monitor deployments and site settings'}
               </p>
             </a>
 
-            {/* GitHub */}
             <a
               href="https://github.com/handman888/khaled-app-pro"
               target="_blank"
@@ -149,7 +133,7 @@ export default function AdminPage({
                 </div>
               </div>
               <p className="text-sm text-n-600">
-                {locale === 'ar' 
+                {isRtl 
                   ? 'شفرة المصدر والتحديثات'
                   : 'Source code and updates'}
               </p>
@@ -158,20 +142,20 @@ export default function AdminPage({
 
           {/* All Links */}
           <h3 className="text-lg font-bold text-n-900 mb-4">
-            {locale === 'ar' ? 'جميع الروابط المهمة' : 'All Important Links'}
+            {isRtl ? 'جميع الروابط المهمة' : 'All Important Links'}
           </h3>
-          <div className="rounded-xl border border-n-200 bg-white overflow-hidden">
+          <div className="rounded-xl border border-n-200 bg-white overflow-hidden mb-8">
             <table className="w-full">
               <thead className="bg-n-50 border-b border-n-200">
                 <tr>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-n-700">
-                    {locale === 'ar' ? 'الخدمة' : 'Service'}
+                    {isRtl ? 'الخدمة' : 'Service'}
                   </th>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-n-700">
-                    {locale === 'ar' ? 'الرابط' : 'Link'}
+                    {isRtl ? 'الرابط' : 'Link'}
                   </th>
                   <th className="px-6 py-3 text-left text-sm font-semibold text-n-700">
-                    {locale === 'ar' ? 'لماذا' : 'Purpose'}
+                    {isRtl ? 'لماذا' : 'Purpose'}
                   </th>
                 </tr>
               </thead>
@@ -180,32 +164,38 @@ export default function AdminPage({
                   {
                     name: 'Your Website',
                     url: 'https://khaled-app-pro.vercel.app',
-                    purpose: locale === 'ar' ? 'موقعك الرسمي' : 'Your live website',
+                    purpose: isRtl ? 'موقعك الرسمي' : 'Your live website',
                     emoji: '🌐'
+                  },
+                  {
+                    name: 'Admin Dashboard',
+                    url: 'https://khaled-app-pro.vercel.app/en/admin',
+                    purpose: isRtl ? 'لوحة التحكم' : 'Admin panel',
+                    emoji: '⚙️'
+                  },
+                  {
+                    name: 'Arabic Version',
+                    url: 'https://khaled-app-pro.vercel.app/ar',
+                    purpose: isRtl ? 'النسخة العربية' : 'Arabic version',
+                    emoji: '🌍'
                   },
                   {
                     name: 'Sanity Studio',
                     url: 'https://www.sanity.io/manage',
-                    purpose: locale === 'ar' ? 'إدارة المنتجات والمحتوى' : 'Manage products & content',
+                    purpose: isRtl ? 'إدارة المنتجات والمحتوى' : 'Manage products & content',
                     emoji: '📦'
                   },
                   {
                     name: 'Vercel Dashboard',
                     url: 'https://vercel.com/dashboard',
-                    purpose: locale === 'ar' ? 'إدارة النشر والإعدادات' : 'Deployment & settings',
+                    purpose: isRtl ? 'إدارة النشر والإعدادات' : 'Deployment & settings',
                     emoji: '🚀'
                   },
                   {
                     name: 'GitHub',
                     url: 'https://github.com/handman888/khaled-app-pro',
-                    purpose: locale === 'ar' ? 'شفرة المصدر' : 'Source code',
+                    purpose: isRtl ? 'شفرة المصدر' : 'Source code',
                     emoji: '💻'
-                  },
-                  {
-                    name: 'GitHub Repo',
-                    url: 'https://github.com/handman888/myproject-sdd-pro',
-                    purpose: locale === 'ar' ? 'مستودع بديل' : 'Alternative repo',
-                    emoji: '📂'
                   },
                 ].map((link, i) => (
                   <tr key={i} className="hover:bg-n-50">
@@ -233,10 +223,10 @@ export default function AdminPage({
           </div>
 
           {/* Your Tools */}
-          <h3 className="text-lg font-bold text-n-900 mt-8 mb-4">
-            {locale === 'ar' ? 'أدواتك' : 'Your Tools'}
+          <h3 className="text-lg font-bold text-n-900 mb-4">
+            {isRtl ? 'أدواتك' : 'Your Tools'}
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
             {[
               { name: 'Text', nameAr: 'النصوص', path: 'text', emoji: '✍️' },
               { name: 'Image', nameAr: 'الصور', path: 'image', emoji: '🖼️' },
@@ -252,24 +242,24 @@ export default function AdminPage({
             ].map((tool) => (
               <Link
                 key={tool.path}
-                href={`/${locale}/tools/${tool.path}`}
+                href={`/${validLocale}/tools/${tool.path}`}
                 className="rounded-xl border border-n-200 bg-white p-4 hover:border-accent hover:shadow-md transition-all text-center"
               >
                 <span className="text-2xl block mb-2">{tool.emoji}</span>
                 <span className="text-sm font-medium text-n-700">
-                  {locale === 'ar' ? tool.nameAr : tool.name}
+                  {isRtl ? tool.nameAr : tool.name}
                 </span>
               </Link>
             ))}
           </div>
 
           {/* Help Section */}
-          <div className="mt-8 rounded-xl bg-accent/5 border border-accent/20 p-6">
+          <div className="rounded-xl bg-accent/5 border border-accent/20 p-6">
             <h3 className="font-bold text-n-900 mb-2">
-              {locale === 'ar' ? 'هل تحتاج مساعدة؟' : 'Need Help?'}
+              {isRtl ? 'هل تحتاج مساعدة؟' : 'Need Help?'}
             </h3>
             <p className="text-sm text-n-600 mb-4">
-              {locale === 'ar' 
+              {isRtl 
                 ? 'إذا واجهت أي مشكلة أو تريد تطوير الموقع، أنا هنا لمساعدتك.'
                 : 'If you face any issues or want to improve the website, I\'m here to help.'}
             </p>
