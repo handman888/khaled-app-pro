@@ -1,9 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { getProducts } from '@/lib/sanity';
+
+interface SanityProduct {
+  _id: string;
+  name: string;
+  nameAr?: string;
+  description?: string;
+  descriptionAr?: string;
+  price?: number;
+  pricePeriod?: string;
+  credits?: number;
+  features?: string[];
+  featuresAr?: string[];
+  isPopular?: boolean;
+  order?: number;
+}
 
 interface PricingProps {
   locale: string;
@@ -12,6 +28,7 @@ interface PricingProps {
 
 export function Pricing({ locale, messages }: PricingProps) {
   const [isYearly, setIsYearly] = useState(false);
+  const [sanityProducts, setSanityProducts] = useState<SanityProduct[]>([]);
   const t = messages.pricing as Record<string, unknown>;
   const sectionTitle = t.sectionTitle as string;
   const sectionSubtitle = t.sectionSubtitle as string;
@@ -20,26 +37,29 @@ export function Pricing({ locale, messages }: PricingProps) {
   const yearlyDiscount = t.yearlyDiscount as string;
   const cta = t.cta as string;
   const tiersData = (t.tiers || {}) as Record<string, Record<string, unknown>>;
+  const isRtl = locale === 'ar';
 
-  const tiers = [
-    {
-      key: 'basic',
-      popular: false,
-    },
-    {
-      key: 'pro',
-      popular: true,
-    },
-    {
-      key: 'enterprise',
-      popular: false,
-    },
+  useEffect(() => {
+    getProducts()
+      .then((products) => {
+        if (products && products.length > 0) {
+          setSanityProducts(products);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const useSanity = sanityProducts.length > 0;
+
+  const fallbackTiers = [
+    { key: 'basic', popular: false },
+    { key: 'pro', popular: true },
+    { key: 'enterprise', popular: false },
   ];
 
   return (
     <section id="pricing" className="section-padding bg-n-50">
       <div className="container-custom">
-        {/* Section Header */}
         <div className="mx-auto mb-12 max-w-2xl text-center">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -60,16 +80,13 @@ export function Pricing({ locale, messages }: PricingProps) {
           </motion.p>
         </div>
 
-        {/* Toggle */}
         <div className="mb-12 flex justify-center">
           <div className="inline-flex items-center gap-3 rounded-xl border border-n-200 bg-white p-1">
             <button
               onClick={() => setIsYearly(false)}
               className={cn(
                 'rounded-lg px-4 py-2 text-sm font-medium transition-all',
-                !isYearly
-                  ? 'bg-accent text-white'
-                  : 'text-n-600 hover:text-n-900'
+                !isYearly ? 'bg-accent text-white' : 'text-n-600 hover:text-n-900'
               )}
             >
               {monthly}
@@ -78,9 +95,7 @@ export function Pricing({ locale, messages }: PricingProps) {
               onClick={() => setIsYearly(true)}
               className={cn(
                 'rounded-lg px-4 py-2 text-sm font-medium transition-all',
-                isYearly
-                  ? 'bg-accent text-white'
-                  : 'text-n-600 hover:text-n-900'
+                isYearly ? 'bg-accent text-white' : 'text-n-600 hover:text-n-900'
               )}
             >
               {yearly}
@@ -91,75 +106,123 @@ export function Pricing({ locale, messages }: PricingProps) {
           </div>
         </div>
 
-        {/* Pricing Cards */}
         <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
-          {tiers.map((tier, index) => {
-            const tierData = tiersData[tier.key] || {};
-            const features = (tierData.features || []) as string[];
-            
-            return (
-              <motion.div
-                key={tier.key}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={cn(
-                  'relative rounded-2xl border bg-white p-8 transition-all',
-                  tier.popular
-                    ? 'border-accent shadow-lg shadow-accent/10'
-                    : 'border-n-200 hover:border-n-300'
-                )}
-              >
-                {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-accent px-4 py-1 text-xs font-semibold text-white">
-                      <Sparkles className="h-3 w-3" />
-                      Most Popular
-                    </span>
-                  </div>
-                )}
+          {useSanity
+            ? sanityProducts.map((product, index) => {
+                const name = isRtl && product.nameAr ? product.nameAr : product.name;
+                const description = isRtl && product.descriptionAr ? product.descriptionAr : product.description;
+                const features = isRtl && product.featuresAr ? product.featuresAr : product.features || [];
+                const price = product.price ? `$${product.price}` : 'Free';
+                const period = product.pricePeriod
+                  ? product.pricePeriod === 'month' ? '/mo' : product.pricePeriod === 'year' ? '/yr' : ''
+                  : '';
 
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold text-n-900">
-                    {tierData.name as string}
-                  </h3>
-                  <p className="mt-1 text-sm text-n-600">
-                    {tierData.description as string}
-                  </p>
-                </div>
+                return (
+                  <motion.div
+                    key={product._id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={cn(
+                      'relative rounded-2xl border bg-white p-8 transition-all',
+                      product.isPopular
+                        ? 'border-accent shadow-lg shadow-accent/10'
+                        : 'border-n-200 hover:border-n-300'
+                    )}
+                  >
+                    {product.isPopular && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-accent px-4 py-1 text-xs font-semibold text-white">
+                          <Sparkles className="h-3 w-3" />
+                          Most Popular
+                        </span>
+                      </div>
+                    )}
+                    <div className="mb-6">
+                      <h3 className="text-xl font-bold text-n-900">{name}</h3>
+                      {description && <p className="mt-1 text-sm text-n-600">{description}</p>}
+                    </div>
+                    <div className="mb-8">
+                      <span className="text-4xl font-bold text-n-900">{price}</span>
+                      {period && <span className="text-n-500">{period}</span>}
+                    </div>
+                    <ul className="mb-8 space-y-3">
+                      {features.map((feature: string, i: number) => (
+                        <li key={i} className="flex items-center gap-3 text-sm text-n-700">
+                          <Check className="h-4 w-4 flex-shrink-0 text-accent" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <button
+                      className={cn(
+                        'w-full rounded-xl py-3 text-sm font-semibold transition-all',
+                        product.isPopular
+                          ? 'bg-accent text-white hover:bg-accent/90 shadow-lg shadow-accent/25'
+                          : 'border border-n-200 text-n-700 hover:bg-n-100'
+                      )}
+                    >
+                      {cta}
+                    </button>
+                  </motion.div>
+                );
+              })
+            : fallbackTiers.map((tier, index) => {
+                const tierData = tiersData[tier.key] || {};
+                const features = (tierData.features || []) as string[];
 
-                <div className="mb-8">
-                  <span className="text-4xl font-bold text-n-900">
-                    {tierData.price as string}
-                  </span>
-                  {tierData.period ? (
-                    <span className="text-n-500">{tierData.period as string}</span>
-                  ) : null}
-                </div>
-
-                <ul className="mb-8 space-y-3">
-                  {features.map((feature: string, i: number) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-n-700">
-                      <Check className="h-4 w-4 flex-shrink-0 text-accent" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <button
-                  className={cn(
-                    'w-full rounded-xl py-3 text-sm font-semibold transition-all',
-                    tier.popular
-                      ? 'bg-accent text-white hover:bg-accent/90 shadow-lg shadow-accent/25'
-                      : 'border border-n-200 text-n-700 hover:bg-n-100'
-                  )}
-                >
-                  {cta}
-                </button>
-              </motion.div>
-            );
-          })}
+                return (
+                  <motion.div
+                    key={tier.key}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={cn(
+                      'relative rounded-2xl border bg-white p-8 transition-all',
+                      tier.popular
+                        ? 'border-accent shadow-lg shadow-accent/10'
+                        : 'border-n-200 hover:border-n-300'
+                    )}
+                  >
+                    {tier.popular && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-accent px-4 py-1 text-xs font-semibold text-white">
+                          <Sparkles className="h-3 w-3" />
+                          Most Popular
+                        </span>
+                      </div>
+                    )}
+                    <div className="mb-6">
+                      <h3 className="text-xl font-bold text-n-900">{tierData.name as string}</h3>
+                      <p className="mt-1 text-sm text-n-600">{tierData.description as string}</p>
+                    </div>
+                    <div className="mb-8">
+                      <span className="text-4xl font-bold text-n-900">{tierData.price as string}</span>
+                      {tierData.period ? <span className="text-n-500">{tierData.period as string}</span> : null}
+                    </div>
+                    <ul className="mb-8 space-y-3">
+                      {features.map((feature: string, i: number) => (
+                        <li key={i} className="flex items-center gap-3 text-sm text-n-700">
+                          <Check className="h-4 w-4 flex-shrink-0 text-accent" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <button
+                      className={cn(
+                        'w-full rounded-xl py-3 text-sm font-semibold transition-all',
+                        tier.popular
+                          ? 'bg-accent text-white hover:bg-accent/90 shadow-lg shadow-accent/25'
+                          : 'border border-n-200 text-n-700 hover:bg-n-100'
+                      )}
+                    >
+                      {cta}
+                    </button>
+                  </motion.div>
+                );
+              })}
         </div>
       </div>
     </section>
