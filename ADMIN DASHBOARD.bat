@@ -1,0 +1,6 @@
+@echo off
+title Opening Admin Dashboard...
+echo.
+echo Opening your Admin Dashboard in browser...
+echo.
+start https://khaled-app-pro.vercel.app/en/admin

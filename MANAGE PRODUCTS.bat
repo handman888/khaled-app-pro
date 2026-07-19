@@ -1,0 +1,6 @@
+@echo off
+title Opening Sanity Studio...
+echo.
+echo Opening Sanity Studio to manage your products...
+echo.
+start https://www.sanity.io/manage

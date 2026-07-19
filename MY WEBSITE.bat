@@ -1,0 +1,6 @@
+@echo off
+title Opening Website...
+echo.
+echo Opening your website in browser...
+echo.
+start https://khaled-app-pro.vercel.app

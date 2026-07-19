@@ -1,0 +1,41 @@
+# Smart Design Digital Pro - Quick Guide
+
+## How to Use (Double-Click These Files)
+
+| File | What It Does |
+|------|-------------|
+| **START WEBSITE.bat** | Starts the website on your computer (localhost) |
+| **MY WEBSITE.bat** | Opens your live website in browser |
+| **ADMIN DASHBOARD.bat** | Opens your admin dashboard |
+| **MANAGE PRODUCTS.bat** | Opens Sanity Studio to add/edit products |
+
+## Step by Step
+
+### To see your website on your computer:
+1. Double-click **START WEBSITE.bat**
+2. Wait for it to start
+3. Your browser will open automatically
+4. Website is at: http://localhost:3000
+
+### To see your live website online:
+1. Double-click **MY WEBSITE.bat**
+2. Your website opens in browser
+
+### To add products:
+1. Double-click **MANAGE PRODUCTS.bat**
+2. Sign in to Sanity
+3. Click Product → Create new → Fill form → Publish
+
+### To see your admin dashboard:
+1. Double-click **ADMIN DASHBOARD.bat**
+2. All your links are in one place
+
+## Your Links
+
+| Link | URL |
+|------|-----|
+| Website | https://khaled-app-pro.vercel.app |
+| Admin | https://khaled-app-pro.vercel.app/en/admin |
+| Arabic | https://khaled-app-pro.vercel.app/ar/admin |
+| Products | https://www.sanity.io/manage |
+| GitHub | https://github.com/handman888/khaled-app-pro |
