@@ -1,0 +1,797 @@
+{
+  "site": {
+    "name": "التصميم الذكي ديجيتال برو",
+    "nameEn": "Smart Design Digital Pro",
+    "tagline": "تصاميم ذكية. نتائج احترافية.",
+    "taglineEn": "Smart Designs. Professional Results."
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "features": "المميزات",
+    "pricing": "الأسعار",
+    "about": "من نحن",
+    "contact": "تواصل معنا",
+    "getStarted": "ابدأ مجاناً",
+    "login": "تسجيل الدخول"
+  },
+  "hero": {
+    "title": "تصاميم ذكية.\nنتائج احترافية.",
+    "subtitle": "منصة الذكاء الاصطناعي الشاملة لتصميم النصوص والصور والفيديو. أنشئ محتوى احترافي بالعربية والإنجليزية.",
+    "cta": "ابدأ مجاناً",
+    "secondaryCta": "شاهد العرض",
+    "badge": "منصة تصميم بالذكاء الاصطناعي"
+  },
+  "features": {
+    "sectionTitle": "كل ما تحتاجه",
+    "sectionSubtitle": "ثلاث أدوات قوية، منصة واحدة",
+    "textGen": {
+      "title": "توليد النصوص",
+      "description": "ولّد نصوصاً احترافية للتسويق والمحتوى الاجتماعي والأعمال بالعربية والإنجليزية.",
+      "items": ["المقالات والمدونات", "المنشورات الاجتماعية", "وصف المنتجات", "حملات البريد الإلكتروني"]
+    },
+    "imageStudio": {
+      "title": "استوديو الصور",
+      "description": "أنشئ صوراً مذهلة مع التحرير بالذكاء الاصطناعي وإزالة الخلفية والتأثيرات الاحترافية.",
+      "items": ["توليد الصور بالذكاء الاصطناعي", "إزالة الخلفية", "إضافة النص والنصوص العربية", "المرشحات والتأثيرات"]
+    },
+    "videoProduction": {
+      "title": "إنتاج الفيديو",
+      "description": "أنتج فيديوهات احترافية بجميع الصيغ والجودات لكل المنصات.",
+      "items": ["ريلز وسائل التواصل", "محتوى يوتيوب", "إعلانات المنصات", "رسوم متحركة"]
+    }
+  },
+  "services": {
+    "sectionTitle": "خدماتنا",
+    "sectionSubtitle": "أدوات احترافية لكل ابداع",
+    "tabs": {
+      "text": "النصوص والمحتوى",
+      "image": "الصور والتصميم",
+      "video": "الفيديو والحركة"
+    },
+    "textContent": {
+      "title": "إنشاء النصوص والمحتوى",
+      "description": "أدوات الكتابة وإدارة المحتوى الاحترافية",
+      "features": [
+        {"title": "كتابة المقالات", "desc": "مقالات ومدونات محسّنة لمحركات البحث"},
+        {"title": "وسائل التواصل", "desc": "منشورات وسلاسل وتقويمات محتوى"},
+        {"title": "إنشاء السيرة الذاتية", "desc": "قوالب احترافية للباحثين عن عمل"},
+        {"title": "تخطيط المحتوى", "desc": "أدوات الاستراتيجية والجدولة"}
+      ]
+    },
+    "imageDesign": {
+      "title": "أدوات الصور والتصميم",
+      "description": "قدرات احترافية لإنشاء وتحرير الصور",
+      "features": [
+        {"title": "التوليد بالذكاء الاصطناعي", "desc": "تحويل النص إلى صور بجودة احترافية"},
+        {"title": "إزالة الخلفية", "desc": "إزالة فورية ودقيقة للخلفية"},
+        {"title": "النص والرسومات", "desc": "إضافة نص احترافي"},
+        {"title": "المرشحات والتأثيرات", "desc": "تصحيح الألوان وتأثيرات الاستوديو"}
+      ]
+    },
+    "videoMotion": {
+      "title": "الفيديو والرسوم المتحركة",
+      "description": "إنتاج فيديو كامل لكل المنصات",
+      "features": [
+        {"title": "الفيديوهات القصيرة", "desc": "ريلز وتيك توك وشورتس"},
+        {"title": "الفيديوهات الطويلة", "desc": "يوتيوب وعروض تقديمية ودروس"},
+        {"title": "صيغ الإعلانات", "desc": "جميع مواصفات إعلانات المنصات"},
+        {"title": "الرسوم المتحركة", "desc": "رسوم متحركة وانتقالات"}
+      ]
+    }
+  },
+  "pricing": {
+    "sectionTitle": "أسعار بسيطة وشفافة",
+    "sectionSubtitle": "ابدأ مجاناً، وتوسع مع نموك",
+    "monthly": "/شهر",
+    "yearly": "/سنة",
+    "yearlyDiscount": "وفر 20%",
+    "cta": "ابدأ الآن",
+    "currentPlan": "الخطة الحالية",
+    "tiers": {
+      "basic": {
+        "name": "الأساسية",
+        "price": "مجاني",
+        "period": "",
+        "description": "مثالية للبداية",
+        "features": [
+          "50 رصيد/شهر",
+          "توليد النصوص",
+          "تحرير الصور الأساسي",
+          "تصدير 720p",
+          "دعم عبر البريد"
+        ]
+      },
+      "pro": {
+        "name": "الاحترافية",
+        "price": "29$",
+        "period": "/شهر",
+        "description": "للمحترفين والفرق الصغيرة",
+        "features": [
+          "500 رصيد/شهر",
+          "جميع ميزات النصوص",
+          "استوديو الصور المتقدم",
+          "تصدير 4K",
+          "دعم ذو أولوية",
+          "قوالب مخصصة"
+        ],
+        "popular": true
+      },
+      "enterprise": {
+        "name": "المؤسسات",
+        "price": "مخصص",
+        "period": "",
+        "description": "للمنظمات ذات الاحتياجات الخاصة",
+        "features": [
+          "أرصدة غير محدودة",
+          "جميع ميزات Pro",
+          "وصول API",
+          "دعم مخصص",
+          "تكاملات مخصصة",
+          "ضمان SLA"
+        ]
+      }
+    }
+  },
+  "testimonials": {
+    "sectionTitle": "موثوق من المحترفين",
+    "sectionSubtitle": "شاهد ما ينشئه مستخدمونا",
+    "items": [
+      {
+        "quote": "غيّرت طريقة عملي بالكامل. أدوات الذكاء الاصطناعي توفر لي ساعات كل أسبوع.",
+        "name": "أحمد حسن",
+        "role": "مدير التسويق",
+        "company": "حلول تقنية"
+      },
+      {
+        "quote": "أفضل منصة تصميم استخدمتها. نتائج احترافية في كل مرة.",
+        "name": "سارة الراشد",
+        "role": "منشئة محتوى",
+        "company": "مستقلة"
+      }
+    ]
+  },
+  "stats": {
+    "users": "+500",
+    "usersLabel": "مستخدم نشط",
+    "credits": "+10 آلاف",
+    "creditsLabel": "رصيد تم توليده",
+    "rating": "4.9",
+    "ratingLabel": "تقييم المستخدمين"
+  },
+  "cta": {
+    "title": "مستعد للإبداع؟",
+    "subtitle": "انضم لمئات المحترفين الذين يستخدمون التصميم الذكي ديجيتال برو.",
+    "button": "ابدأ تجربة مجانية"
+  },
+  "footer": {
+    "description": "منصة الذكاء الاصطناعي الشاملة للتصميم الاحترافي بالعربية والإنجليزية.",
+    "product": "المنتج",
+    "resources": "الموارد",
+    "company": "الشركة",
+    "productLinks": ["المميزات", "الأسعار", "API", "التكاملات"],
+    "resourceLinks": ["المدونة", "الدروس", "التوثيق", "المجتمع"],
+    "companyLinks": ["من نحن", "الوظائف", "تواصل معنا", "الخصوصية"],
+    "rights": "جميع الحقوق محفوظة.",
+    "madeWith": "صنع بالذكاء الاصطناعي"
+  },
+  "about": {
+    "title": "عن التصميم الذكي ديجيتال برو",
+    "subtitle": "تمكين المبدعين بأدوات تصميم مدعومة بالذكاء الاصطناعي",
+    "mission": "مهمتنا",
+    "missionText": "جعل التصميم الاحترافي متاحاً للجميع من خلال قوة الذكاء الاصطناعي.",
+    "vision": "رؤيتنا",
+    "visionText": "أن نصبح منصة التصميم بالذكاء الاصطناعي الرائدة في منطقة الشرق الأوسط وخارجها.",
+    "values": "قيمنا",
+    "valuesList": [
+      {"title": "الابتكار", "desc": "دفع حدود تصميم الذكاء الاصطناعي"},
+      {"title": "الإتاحة", "desc": "جعل الأدوات الاحترافية متاحة للجميع"},
+      {"title": "الجودة", "desc": "نتائج احترافية، في كل مرة"},
+      {"title": "الثقة", "desc": "موثوق وآمن وشفاف"}
+    ]
+  },
+  "contact": {
+    "title": "تواصل معنا",
+    "subtitle": "لديك أسئلة؟ يسعدنا سماعك.",
+    "name": "اسمك",
+    "email": "البريد الإلكتروني",
+    "subject": "الموضوع",
+    "message": "رسالتك",
+    "send": "إرسال الرسالة",
+    "success": "تم إرسال الرسالة بنجاح!",
+    "info": "معلومات الاتصال",
+    "address": "دبي، الإمارات",
+    "phone": "+971 50 123 4567",
+    "emailAddress": "hello@smartdesigndigitalpro.com"
+  },
+  "tools": {
+    "nav": "أدوات الذكاء الاصطناعي",
+    "text": {
+      "title": "توليد النصوص",
+      "subtitle": "أنشئ محتوى احترافي بالذكاء الاصطناعي",
+      "placeholder": "أدخل الأمر هنا...",
+      "generate": "توليد النص",
+      "generating": "جاري التوليد...",
+      "copy": "نسخ",
+      "copied": "تم النسخ!",
+      "clear": "مسح",
+      "download": "تحميل",
+      "templates": "القوالب",
+      "custom": "مخصص",
+      "history": "السجل",
+      "language": "اللغة",
+      "tone": "النبرة",
+      "length": "الطول",
+      "tones": {
+        "professional": "احترافي",
+        "casual": "غير رسمي",
+        "formal": "رسمي",
+        "creative": "إبداعي",
+        "persuasive": "إقناعي"
+      },
+      "lengths": {
+        "short": "قصير",
+        "medium": "متوسط",
+        "long": "طويل"
+      },
+      "categories": {
+        "blog": "مقال مدونة",
+        "social": "وسائل التواصل",
+        "email": "بريد إلكتروني",
+        "ad": "إعلان",
+        "resume": "سيرة ذاتية",
+        "product": "وصف منتج"
+      },
+      "placeholders": {
+        "blog": "اكتب مقال مدونة عن...",
+        "social": "أنشئ منشور تواصل اجتماعي لـ...",
+        "email": "اكتب بريد إلكتروني احترافي حول...",
+        "ad": "اكتب إعلاناً لـ...",
+        "resume": "اكتب ملخص سيرة ذاتية لـ...",
+        "product": "اكتب وصف منتج لـ..."
+      },
+      "result": "المحتوى المُولد",
+      "wordCount": "كلمات",
+      "charCount": "أحرف"
+    },
+    "image": {
+      "title": "توليد الصور",
+      "subtitle": "أنشئ صوراً مذهلة بالذكاء الاصطناعي",
+      "prompt": "صف الصورة التي تريد إنشاءها",
+      "placeholder": "مدينة مستقبلية عند غروب الشمس، ستايل سايبربانك...",
+      "generate": "توليد الصورة",
+      "generating": "جاري التوليد...",
+      "download": "تحميل",
+      "share": "مشاركة",
+      "edit": "تعديل",
+      "removeBg": "إزالة الخلفية",
+      "addText": "إضافة نص",
+      "filters": "المرشحات",
+      "effects": "التأثيرات",
+      "adjust": "الضبط",
+      "templates": "القوالب",
+      "gallery": "معرضي",
+      "upload": "رفع صورة",
+      "dragDrop": "اسحب وأفلت أو انقر للرفع",
+      "formats": "يدعم: JPG, PNG, WebP",
+      "styles": {
+        "realistic": "واقعي",
+        "artistic": "فني",
+        "cartoon": "كرتوني",
+        "abstract": "تجريدي",
+        "minimal": "بسيط"
+      },
+      "sizes": {
+        "square": "1:1 مربع",
+        "landscape": "16:9 أفقي",
+        "portrait": "9:16 عمودي",
+        "story": "9:16 ستوري"
+      },
+      "result": "الصورة المُولدة"
+    },
+    "video": {
+      "title": "توليد الفيديو",
+      "subtitle": "أنشئ فيديوهات احترافية بالذكاء الاصطناعي",
+      "prompt": "صف مفهوم الفيديو الخاص بك",
+      "placeholder": "فيديو عرض منتج يُظهر...",
+      "generate": "توليد الفيديو",
+      "generating": "جاري التوليد...",
+      "download": "تحميل",
+      "share": "مشاركة",
+      "preview": "معاينة",
+      "edit": "تعديل الفيديو",
+      "templates": "القوالب",
+      "myVideos": "فيديوهاتي",
+      "upload": "رفع فيديو",
+      "dragDrop": "اسحب وأفلت أو انقر للرفع",
+      "formats": "يدعم: MP4, MOV, WebM",
+      "duration": "المدة",
+      "quality": "الجودة",
+      "aspectRatio": "نسبة العرض",
+      "durations": {
+        "short": "15 ثانية",
+        "medium": "30 ثانية",
+        "long": "60 ثانية"
+      },
+      "qualities": {
+        "hd": "HD (720p)",
+        "fullhd": "Full HD (1080p)",
+        "4k": "4K (2160p)"
+      },
+      "ratios": {
+        "landscape": "16:9 أفقي",
+        "portrait": "9:16 عمودي",
+        "square": "1:1 مربع"
+      },
+      "templates": {
+        "promo": "ترويجي",
+        "tutorial": "تعليمي",
+        "social": "وسائل التواصل",
+        "ad": "إعلان"
+      },
+      "result": "الفيديو المُولد"
+    },
+    "resume": {
+      "title": "منشئ السيرة الذاتية",
+      "subtitle": "أنشئ سير ذاتية احترافية بالذكاء الاصطناعي",
+      "personalInfo": "المعلومات الشخصية",
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "location": "الموقع",
+      "website": "الموقع الإلكتروني (اختياري)",
+      "summary": "الملخص المهني",
+      "summaryPlaceholder": "اكتب ملخصاً موجزاً لخلفيتك المهنية...",
+      "experience": "الخبرة العملية",
+      "addExperience": "إضافة خبرة",
+      "company": "اسم الشركة",
+      "position": "المنصب",
+      "startDate": "تاريخ البداية",
+      "endDate": "تاريخ النهاية",
+      "current": "حالي",
+      "description": "الوصف",
+      "experiencePlaceholder": "صف مسؤولياتك وإنجازاتك...",
+      "education": "التعليم",
+      "addEducation": "إضافة تعليم",
+      "institution": "اسم المؤسسة",
+      "degree": "الدرجة",
+      "field": "مجال الدراسة",
+      "graduationDate": "تاريخ التخرج",
+      "skills": "المهارات",
+      "addSkill": "إضافة مهارة",
+      "skillPlaceholder": "مثال: JavaScript, إدارة المشاريع",
+      "languages": "اللغات",
+      "addLanguage": "إضافة لغة",
+      "languagePlaceholder": "مثال: الإنجليزية, العربية",
+      "templates": "قوالب السيرة الذاتية",
+      "templateNames": {
+        "modern": "عصري",
+        "classic": "كلاسيكي",
+        "creative": "إبداعي",
+        "minimal": "بسيط"
+      },
+      "preview": "معاينة",
+      "downloadPDF": "تحميل PDF",
+      "downloadWord": "تحميل Word",
+      "clearAll": "مسح الكل",
+      "aiImprove": "تحسين بالذكاء الاصطناعي",
+      "improving": "جاري التحسين بالذكاء الاصطناعي...",
+      "generatedSummary": "ملخص مُولد بالذكاء الاصطناعي",
+      "remove": "إزالة",
+      "section": "قسم",
+      "results": {
+        "experience": "خبرة عمل",
+        "education": "تعليم",
+        "skills": "مهارات",
+        "languages": "لغات"
+      }
+    },
+    "social": {
+      "title": "مدير وسائل التواصل",
+      "subtitle": "إدارة وجدولة محتوى وسائل التواصل الاجتماعي",
+      "platforms": "المنصات",
+      "platformNames": {
+        "instagram": "إنستغرام",
+        "twitter": "تويتر/X",
+        "linkedin": "لينكدإن",
+        "facebook": "فيسبوك",
+        "tiktok": "تيك توك"
+      },
+      "connect": "ربط الحساب",
+      "disconnect": "فصل",
+      "connected": "متصل",
+      "calendar": "تقويم المحتوى",
+      "createPost": "إنشاء منشور",
+      "newPost": "منشور جديد",
+      "postContent": "محتوى المنشور",
+      "postPlaceholder": "ماذا تريد أن تشارك؟",
+      "addMedia": "إضافة وسائط",
+      "schedule": "جدولة",
+      "publishNow": "نشر الآن",
+      "scheduled": "مجدول",
+      "published": "منشور",
+      "draft": "مسودة",
+      "analytics": "التحليلات",
+      "overview": "نظرة عامة",
+      "engagement": "التفاعل",
+      "followers": "المتابعون",
+      "reach": "الوصول",
+      "impressions": "الظهور",
+      "growth": "النمو",
+      "content": "المحتوى",
+      "hashtags": "الهاشتاغات",
+      "addHashtag": "إضافة هاشتاغ",
+      "bestTimes": "أفضل أوقات النشر",
+      "suggestions": "اقتراحات المحتوى",
+      "aiGenerate": "توليد بالذكاء الاصطناعي",
+      "generating": "جاري التوليد...",
+      "weekView": "عرض أسبوعي",
+      "monthView": "عرض شهري",
+      "days": {
+        "monday": "الإثنين",
+        "tuesday": "الثلاثاء",
+        "wednesday": "الأربعاء",
+        "thursday": "الخميس",
+        "friday": "الجمعة",
+        "saturday": "السبت",
+        "sunday": "الأحد"
+      },
+      "months": {
+        "january": "يناير",
+        "february": "فبراير",
+        "march": "مارس",
+        "april": "أبريل",
+        "may": "مايو",
+        "june": "يونيو",
+        "july": "يوليو",
+        "august": "أغسطس",
+        "september": "سبتمبر",
+        "october": "أكتوبر",
+        "november": "نوفمبر",
+        "december": "ديسمبر"
+      }
+    },
+    "code": {
+      "title": "مولد الأكواد",
+      "subtitle": "توليد وشرح وتحسين الأكواد بالذكاء الاصطناعي",
+      "language": "اللغة",
+      "languages": {
+        "javascript": "جافاسكريبت",
+        "typescript": "تايب سكريبت",
+        "python": "بايثون",
+        "java": "جافا",
+        "cpp": "سي++",
+        "html": "HTML",
+        "css": "CSS",
+        "sql": "SQL",
+        "php": "PHP",
+        "ruby": "روبي",
+        "go": "جو",
+        "rust": "رست",
+        "swift": "سويفت"
+      },
+      "prompt": "صف ما تريد بناءه",
+      "placeholder": "مثال: أنشئ مكون React لقائمة مهام...",
+      "generate": "توليد الكود",
+      "generating": "جاري التوليد...",
+      "copy": "نسخ",
+      "copied": "تم النسخ!",
+      "clear": "مسح",
+      "download": "تحميل",
+      "explain": "شرح الكود",
+      "explaining": "جاري الشرح...",
+      "optimize": "تحسين",
+      "optimizing": "جاري التحسين...",
+      "convert": "تحويل إلى",
+      "tabs": {
+        "generate": "توليد",
+        "explain": "شرح",
+        "debug": "تصحيح",
+        "convert": "تحويل"
+      },
+      "explanation": "شرح الكود",
+      "explanationPlaceholder": "الصق الكود لشرحه...",
+      "debugPlaceholder": "الصق الكود مع الخطأ...",
+      "convertFrom": "من",
+      "convertTo": "إلى",
+      "convertButton": "تحويل الكود",
+      "result": "الكود المُولد",
+      "errorPlaceholder": "مثال: TypeError: Cannot read property 'map' of undefined...",
+      "debug": "تصحيح الكود",
+      "debugging": "جاري التصحيح...",
+      "bugFound": "تم العثور على خطأ",
+      "fixSuggestion": "اقتراح الإصلاح",
+      "lineNumbers": "أرقام الأسطر",
+      "wrap": "لف النص"
+    },
+    "chat": {
+      "title": "روبوت المحادثة",
+      "subtitle": "احصل على إجابات فورية ومساعدة إبداعية",
+      "placeholder": "اكتب رسالتك...",
+      "send": "إرسال",
+      "thinking": "جاري التفكير...",
+      "clearChat": "مسح المحادثة",
+      "newChat": "محادثة جديدة",
+      "chats": "المحادثات",
+      "settings": "الإعدادات",
+      "model": "النموذج",
+      "temperature": "الإبداعية",
+      "models": {
+        "fast": "سريع (افتراضي)",
+        "balanced": "متوازن",
+        "creative": "إبداعي"
+      },
+      "suggestions": {
+        "title": "اقتراحات",
+        "write": "اكتب قصيدة عن التكنولوجيا",
+        "explain": "اشرح الحوسبة الكمية بطريقة بسيطة",
+        "code": "ساعدني في كتابة دالة بايثون",
+        "brainstorm": "أفكار بدء أعمال"
+      },
+      "welcome": "كيف يمكنني مساعدتك اليوم؟",
+      "welcomeDesc": "يمكنني المساعدة في الكتابة والبرمجة والتحليل والمهام الإبداعية.",
+      "code": "الكود",
+      "copy": "نسخ",
+      "copied": "تم النسخ!",
+      "regenerate": "إعادة التوليد",
+      "thumbsUp": "مفيد",
+      "thumbsDown": "غير مفيد",
+      "thinkingProcess": "عملية التفكير",
+      "sources": "المصادر",
+      "noChats": "لا توجد محادثات سابقة",
+      "deleteChat": "حذف المحادثة",
+      "renameChat": "إعادة تسمية المحادثة"
+    },
+    "audio": {
+      "title": "مولّد الصوتيات والموسيقى",
+      "subtitle": "أنشئ موسيقى وتعليقات صوتية ومؤثرات بالذكاء الاصطناعي",
+      "tabs": {
+        "music": "موسيقى",
+        "voiceover": "تعليق صوتي",
+        "effects": "مؤثرات صوتية"
+      },
+      "prompt": "صف الصوت الذي تريد إنشاءه",
+      "placeholder": {
+        "music": "مثال: موسيقى خلفية حماسية للشركات، 120 BPM...",
+        "voiceover": "مثال: صوت رجل احترافي يشرح عرض منتج...",
+        "effects": "مثال: مطر يسقط على النافذة، رياح خفيفة..."
+      },
+      "generate": "توليد الصوت",
+      "generating": "جاري التوليد...",
+      "play": "تشغيل",
+      "pause": "إيقاف مؤقت",
+      "stop": "إيقاف",
+      "download": "تحميل",
+      "share": "مشاركة",
+      "trim": "قص",
+      "volume": "الصوت",
+      "speed": "السرعة",
+      "duration": "المدة",
+      "format": "الصيغة",
+      "formats": {
+        "mp3": "MP3",
+        "wav": "WAV",
+        "ogg": "OGG",
+        "flac": "FLAC"
+      },
+      "genres": {
+        "corporate": "شركات",
+        "ambient": "محيطي",
+        "electronic": "إلكتروني",
+        "cinematic": "سينمائي",
+        "lofi": "لو-فاي",
+        "jazz": "جاز",
+        "rock": "روك",
+        "pop": "بوب"
+      },
+      "voices": {
+        "male": "ذكر",
+        "female": "أنثى",
+        "neutral": "محايد"
+      },
+      "languages": {
+        "english": "الإنجليزية",
+        "arabic": "العربية",
+        "spanish": "الإسبانية",
+        "french": "الفرنسية",
+        "german": "الألمانية",
+        "japanese": "اليابانية"
+      },
+      "effects": {
+        "nature": "طبيعة",
+        "urban": "حضري",
+        "abstract": "تجريدي",
+        "impact": "تأثير",
+        "transition": "انتقال",
+        "ambient": "محيطي"
+      },
+      "result": "الصوت المُولد",
+      "waveform": "الشكل الموجي",
+      "timeline": "الخط الزمني",
+      "loop": "تكرار",
+      "fadeIn": "تلاشي للداخل",
+      "fadeOut": "تلاشي للخارج",
+      "bpm": "BPM",
+      "key": "المفتاح",
+      "mood": "المزاج",
+      "moods": {
+        "happy": "سعيد",
+        "sad": "حزين",
+        "energetic": "حماسي",
+        "calm": "هادئ",
+        "dramatic": "درامي",
+        "mysterious": "غامض"
+      }
+    },
+    "translate": {
+      "title": "المترجم الذكي",
+      "subtitle": "ترجم النصوص بين أكثر من 100 لغة فوراً",
+      "sourceLang": "من",
+      "targetLang": "إلى",
+      "swap": "تبديل اللغات",
+      "inputPlaceholder": "أدخل النص للترجمة...",
+      "outputPlaceholder": "ستظهر الترجمة هنا...",
+      "translate": "ترجمة",
+      "translating": "جاري الترجمة...",
+      "copy": "نسخ",
+      "copied": "تم النسخ!",
+      "clear": "مسح",
+      "download": "تحميل",
+      "upload": "رفع ملف",
+      "dragDrop": "اسحب وأفلت أو انقر للرفع",
+      "supportedFormats": "يدعم: TXT, DOCX, PDF",
+      "autoDetect": "كشف تلقائي",
+      "recentLanguages": "اللغات الأخيرة",
+      "savedTranslations": "الترجمات المحفوظة",
+      "save": "حفظ الترجمة",
+      "saved": "تم الحفظ!",
+      "history": "سجل الترجمات",
+      "characterCount": "حرف",
+      "wordCount": "كلمة",
+      "commonPhrases": "عبارات شائعة",
+      "formality": "الرسمية",
+      "formalities": {
+        "formal": "رسمي",
+        "informal": "غير رسمي",
+        "neutral": "محايد"
+      },
+      "context": "السياق",
+      "contextOptions": {
+        "general": "عام",
+        "business": "أعمال",
+        "technical": "تقني",
+        "medical": "طبي",
+        "legal": "قانوني"
+      },
+      "features": {
+        "accuracy": "دقة 99%",
+        "speed": "ترجمة فورية",
+        "context": "وعي بالسياق",
+        "pronunciation": "دليل النطق"
+      }
+    },
+    "document": {
+      "title": "محلل المستندات",
+      "subtitle": "حلل ولخّص واستخرج الرؤى من المستندات",
+      "upload": "رفع مستند",
+      "dragDrop": "اسحب وأفلت أو انقر للرفع",
+      "supportedFormats": "يدعم: PDF, DOCX, TXT, MD",
+      "paste": "أو الصق النص مباشرة",
+      "pastePlaceholder": "الصق محتوى المستند هنا...",
+      "analyze": "تحليل المستند",
+      "analyzing": "جاري التحليل...",
+      "tabs": {
+        "summary": "ملخص",
+        "keywords": "الكلمات المفتاحية",
+        "sentiment": "المشاعر",
+        "stats": "الإحصائيات"
+      },
+      "summary": {
+        "title": "ملخص المستند",
+        "brief": "ملخص موجز",
+        "detailed": "ملخص مفصل",
+        "keyPoints": "النقاط الرئيسية",
+        "generate": "توليد ملخص"
+      },
+      "keywords": {
+        "title": "الكلمات المفتاحية والمواضيع",
+        "extract": "استخراج الكلمات المفتاحية",
+        "topics": "المواضيع الرئيسية",
+        "entities": "الكيانات المسماة"
+      },
+      "sentiment": {
+        "title": "تحليل المشاعر",
+        "overall": "المشاعر العامة",
+        "positive": "إيجابي",
+        "negative": "سلبي",
+        "neutral": "محايد",
+        "mixed": "مختلط",
+        "emotions": "المشاعر المكتشفة"
+      },
+      "stats": {
+        "title": "إحصائيات المستند",
+        "words": "الكلمات",
+        "sentences": "الجمل",
+        "paragraphs": "الفقرات",
+        "readingTime": "وقت القراءة",
+        "readability": "درجة القراءة",
+        "complexity": "مستوى التعقيد"
+      },
+      "actions": {
+        "rewrite": "إعادة كتابة",
+        "simplify": "تبسيط",
+        "expand": "توسيع",
+        "translate": "ترجمة",
+        "improve": "تحسين الكتابة"
+      },
+      "result": "نتائج التحليل",
+      "download": "تحميل التقرير",
+      "copy": "نسخ",
+      "copied": "تم النسخ!",
+      "history": "سجل التحليلات"
+    },
+    "presentation": {
+      "title": "منشئ العروض التقديمية",
+      "subtitle": "أنشئ عروض تقديمية احترافية بالذكاء الاصطناعي",
+      "newPresentation": "عرض تقديمي جديد",
+      "templates": "القوالب",
+      "templateNames": {
+        "business": "أعمال",
+        "creative": "إبداعي",
+        "minimal": "بسيط",
+        "education": "تعليمي",
+        "pitch": "عرض مشروع"
+      },
+      "slides": "الشرائح",
+      "addSlide": "إضافة شريحة",
+      "slideTypes": {
+        "title": "شريحة عنوان",
+        "content": "محتوى",
+        "twoColumn": "عمودان",
+        "imageText": "صورة + نص",
+        "chart": "رسم بياني",
+        "quote": "اقتباس",
+        "blank": "فارغة"
+      },
+      "editor": {
+        "title": "عنوان الشريحة",
+        "titlePlaceholder": "أدخل عنوان الشريحة...",
+        "content": "المحتوى",
+        "contentPlaceholder": "أدخل محتوى الشريحة...",
+        "addBullet": "إضافة نقطة",
+        "notes": "ملاحظات المتحدث",
+        "notesPlaceholder": "أضف ملاحظات المتحدث..."
+      },
+      "design": {
+        "title": "التصميم",
+        "theme": "السمة",
+        "colors": "الألوان",
+        "fonts": "الخطوط",
+        "layout": "التخطيط"
+      },
+      "preview": "معاينة",
+      "present": "عرض تقديمي",
+      "presenting": "جاري العرض...",
+      "exit": "الخروج من العرض",
+      "download": "تحميل",
+      "downloadFormats": {
+        "pdf": "PDF",
+        "pptx": "PowerPoint",
+        "images": "صور (ZIP)"
+      },
+      "share": "مشاركة",
+      "shareLink": "رابط المشاركة",
+      "collaborate": "التعاون",
+      "aiGenerate": "توليد شريحة بالذكاء الاصطناعي",
+      "aiTheme": "توليد سمة",
+      "generating": "جاري التوليد...",
+      "outline": "توليد مخطط",
+      "outlinePlaceholder": "صف موضوع العرض التقديمي...",
+      "generateOutline": "توليد المخطط",
+      "slideCount": "شرائح",
+      "duration": "المدة المقدرة",
+      "speakerView": "عرض المتحدث",
+      "timer": "مؤقت",
+      "fullscreen": "شاشة كاملة"
+    }
+  }
+}

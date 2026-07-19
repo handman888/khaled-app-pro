@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+:root {
+  /* === Color System === */
+  /* Neutral scale */
+  --n-50: #FAFBFC;
+  --n-100: #F1F3F5;
+  --n-200: #E9ECEF;
+  --n-300: #DEE2E6;
+  --n-400: #CED4DA;
+  --n-500: #ADB5BD;
+  --n-600: #868E96;
+  --n-700: #495057;
+  --n-800: #343A40;
+  --n-900: #212529;
+
+  /* Accent colors */
+  --accent-primary: #6366F1;
+  --accent-secondary: #06B6D4;
+  --accent-glow: #8B5CF6;
+
+  /* Semantic colors */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --info: #3B82F6;
+
+  /* === Typography === */
+  --font-display: var(--font-inter), 'Noto Sans Arabic', system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-inter), 'Noto Sans Arabic', system-ui, -apple-system, sans-serif;
+  --font-arabic: var(--font-noto-arabic), 'Noto Sans Arabic', system-ui, sans-serif;
+
+  /* === Transitions === */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+
+  /* === Layout === */
+  --max-width: 1280px;
+  --header-height: 72px;
+}
+
+@theme inline {
+  --color-n-50: var(--n-50);
+  --color-n-100: var(--n-100);
+  --color-n-200: var(--n-200);
+  --color-n-300: var(--n-300);
+  --color-n-400: var(--n-400);
+  --color-n-500: var(--n-500);
+  --color-n-600: var(--n-600);
+  --color-n-700: var(--n-700);
+  --color-n-800: var(--n-800);
+  --color-n-900: var(--n-900);
+  --color-accent: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-glow: var(--accent-glow);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+}
+
+/* === Base Reset === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--n-50);
+  color: var(--n-900);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === RTL Support === */
+[dir="rtl"] {
+  font-family: var(--font-arabic);
+}
+
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* === Focus Styles === */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* === Selection === */
+::selection {
+  background: var(--accent-primary);
+  color: white;
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--n-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--n-400);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--n-500);
+}
+
+/* === Container Utility === */
+.container-custom {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+/* === Section Spacing === */
+.section-padding {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+}
+
+/* === Gradient Text === */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === Geometric Pattern Background === */
+.pattern-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.pattern-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, var(--accent-primary) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, var(--accent-secondary) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.05;
+  pointer-events: none;
+}

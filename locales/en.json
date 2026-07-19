@@ -1,0 +1,797 @@
+{
+  "site": {
+    "name": "Smart Design Digital Pro",
+    "nameAr": "التصميم الذكي ديجيتال برو",
+    "tagline": "Smart Designs. Professional Results.",
+    "taglineAr": "تصاميم ذكية. نتائج احترافية."
+  },
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact",
+    "getStarted": "Start Free",
+    "login": "Log In"
+  },
+  "hero": {
+    "title": "Smart Designs.\nProfessional Results.",
+    "subtitle": "The complete AI platform for text, image, and video design. Create professional content in Arabic and English.",
+    "cta": "Start Free",
+    "secondaryCta": "Watch Demo",
+    "badge": "AI-Powered Design Platform"
+  },
+  "features": {
+    "sectionTitle": "Everything You Need",
+    "sectionSubtitle": "Three powerful tools, one platform",
+    "textGen": {
+      "title": "Text Generation",
+      "description": "Generate professional copy for marketing, social media, and business content in Arabic and English.",
+      "items": ["Blog posts & articles", "Social media captions", "Product descriptions", "Email campaigns"]
+    },
+    "imageStudio": {
+      "title": "Image Studio",
+      "description": "Create stunning visuals with AI-powered editing, background removal, and professional effects.",
+      "items": ["AI image generation", "Background removal", "Text overlay & typography", "Filters & effects"]
+    },
+    "videoProduction": {
+      "title": "Video Production",
+      "description": "Produce professional videos in all formats and qualities for every platform.",
+      "items": ["Social media reels", "YouTube content", "Ad formats", "Motion graphics"]
+    }
+  },
+  "services": {
+    "sectionTitle": "Our Services",
+    "sectionSubtitle": "Professional tools for every creative need",
+    "tabs": {
+      "text": "Text & Content",
+      "image": "Image & Design",
+      "video": "Video & Motion"
+    },
+    "textContent": {
+      "title": "Text & Content Creation",
+      "description": "Professional writing and content management tools",
+      "features": [
+        {"title": "Blog Writing", "desc": "SEO-optimized articles and blog posts"},
+        {"title": "Social Media", "desc": "Captions, threads, and content calendars"},
+        {"title": "Resume Builder", "desc": "Professional templates for job seekers"},
+        {"title": "Content Planning", "desc": "Strategy and scheduling tools"}
+      ]
+    },
+    "imageDesign": {
+      "title": "Image & Design Tools",
+      "description": "Professional image creation and editing capabilities",
+      "features": [
+        {"title": "AI Generation", "desc": "Text-to-image with professional quality"},
+        {"title": "Background Removal", "desc": "Instant, clean background removal"},
+        {"title": "Text & Graphics", "desc": "Professional typography overlay"},
+        {"title": "Filters & Effects", "desc": "Studio-quality color grading and effects"}
+      ]
+    },
+    "videoMotion": {
+      "title": "Video & Motion Graphics",
+      "description": "Complete video production for all platforms",
+      "features": [
+        {"title": "Short-Form", "desc": "Reels, TikTok, Shorts optimized"},
+        {"title": "Long-Form", "desc": "YouTube, presentations, tutorials"},
+        {"title": "Ad Formats", "desc": "All platform ad specifications"},
+        {"title": "Animation", "desc": "Motion graphics and transitions"}
+      ]
+    }
+  },
+  "pricing": {
+    "sectionTitle": "Simple, Transparent Pricing",
+    "sectionSubtitle": "Start free, scale as you grow",
+    "monthly": "month",
+    "yearly": "year",
+    "yearlyDiscount": "Save 20%",
+    "cta": "Get Started",
+    "currentPlan": "Current Plan",
+    "tiers": {
+      "basic": {
+        "name": "Basic",
+        "price": "Free",
+        "period": "",
+        "description": "Perfect for getting started",
+        "features": [
+          "50 credits/month",
+          "Text generation",
+          "Basic image editing",
+          "720p video export",
+          "Email support"
+        ]
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "$29",
+        "period": "/month",
+        "description": "For professionals and small teams",
+        "features": [
+          "500 credits/month",
+          "All text features",
+          "Advanced image studio",
+          "4K video export",
+          "Priority support",
+          "Custom templates"
+        ],
+        "popular": true
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Custom",
+        "period": "",
+        "description": "For organizations with custom needs",
+        "features": [
+          "Unlimited credits",
+          "All Pro features",
+          "API access",
+          "Dedicated support",
+          "Custom integrations",
+          "SLA guarantee"
+        ]
+      }
+    }
+  },
+  "testimonials": {
+    "sectionTitle": "Trusted by Professionals",
+    "sectionSubtitle": "See what our users are creating",
+    "items": [
+      {
+        "quote": "Changed how I work completely. The AI tools save me hours every week.",
+        "name": "Ahmed Hassan",
+        "role": "Marketing Director",
+        "company": "Tech Solutions"
+      },
+      {
+        "quote": "The best design platform I've used. Professional results every time.",
+        "name": "Sara Al-Rashid",
+        "role": "Content Creator",
+        "company": "Independent"
+      }
+    ]
+  },
+  "stats": {
+    "users": "500+",
+    "usersLabel": "Active Users",
+    "credits": "10K+",
+    "creditsLabel": "Credits Generated",
+    "rating": "4.9",
+    "ratingLabel": "User Rating"
+  },
+  "cta": {
+    "title": "Ready to Create?",
+    "subtitle": "Join hundreds of professionals already using Smart Design Digital Pro.",
+    "button": "Start Free Trial"
+  },
+  "footer": {
+    "description": "The complete AI platform for professional design in Arabic and English.",
+    "product": "Product",
+    "resources": "Resources",
+    "company": "Company",
+    "productLinks": ["Features", "Pricing", "API", "Integrations"],
+    "resourceLinks": ["Blog", "Tutorials", "Documentation", "Community"],
+    "companyLinks": ["About", "Careers", "Contact", "Privacy"],
+    "rights": "All rights reserved.",
+    "madeWith": "Made with AI"
+  },
+  "about": {
+    "title": "About Smart Design Digital Pro",
+    "subtitle": "Empowering creators with AI-powered design tools",
+    "mission": "Our Mission",
+    "missionText": "To make professional design accessible to everyone through the power of artificial intelligence.",
+    "vision": "Our Vision",
+    "visionText": "To become the leading AI design platform in the MENA region and beyond.",
+    "values": "Our Values",
+    "valuesList": [
+      {"title": "Innovation", "desc": "Pushing the boundaries of AI design"},
+      {"title": "Accessibility", "desc": "Making pro tools available to all"},
+      {"title": "Quality", "desc": "Professional results, every time"},
+      {"title": "Trust", "desc": "Reliable, secure, and transparent"}
+    ]
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have questions? We'd love to hear from you.",
+    "name": "Your Name",
+    "email": "Email Address",
+    "subject": "Subject",
+    "message": "Your Message",
+    "send": "Send Message",
+    "success": "Message sent successfully!",
+    "info": "Contact Information",
+    "address": "Dubai, UAE",
+    "phone": "+971 50 123 4567",
+    "emailAddress": "hello@smartdesigndigitalpro.com"
+  },
+  "tools": {
+    "nav": "AI Tools",
+    "text": {
+      "title": "Text Generation",
+      "subtitle": "Create professional content with AI",
+      "placeholder": "Enter your prompt here...",
+      "generate": "Generate Text",
+      "generating": "Generating...",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "clear": "Clear",
+      "download": "Download",
+      "templates": "Templates",
+      "custom": "Custom",
+      "history": "History",
+      "language": "Language",
+      "tone": "Tone",
+      "length": "Length",
+      "tones": {
+        "professional": "Professional",
+        "casual": "Casual",
+        "formal": "Formal",
+        "creative": "Creative",
+        "persuasive": "Persuasive"
+      },
+      "lengths": {
+        "short": "Short",
+        "medium": "Medium",
+        "long": "Long"
+      },
+      "categories": {
+        "blog": "Blog Post",
+        "social": "Social Media",
+        "email": "Email",
+        "ad": "Advertisement",
+        "resume": "Resume",
+        "product": "Product Description"
+      },
+      "placeholders": {
+        "blog": "Write a blog post about...",
+        "social": "Create a social media caption for...",
+        "email": "Write a professional email about...",
+        "ad": "Write an advertisement for...",
+        "resume": "Write a resume summary for...",
+        "product": "Write a product description for..."
+      },
+      "result": "Generated Content",
+      "wordCount": "words",
+      "charCount": "characters"
+    },
+    "image": {
+      "title": "Image Generation",
+      "subtitle": "Create stunning visuals with AI",
+      "prompt": "Describe the image you want to create",
+      "placeholder": "A futuristic city at sunset, cyberpunk style...",
+      "generate": "Generate Image",
+      "generating": "Generating...",
+      "download": "Download",
+      "share": "Share",
+      "edit": "Edit",
+      "removeBg": "Remove Background",
+      "addText": "Add Text",
+      "filters": "Filters",
+      "effects": "Effects",
+      "adjust": "Adjustments",
+      "templates": "Templates",
+      "gallery": "My Gallery",
+      "upload": "Upload Image",
+      "dragDrop": "Drag & drop or click to upload",
+      "formats": "Supports: JPG, PNG, WebP",
+      "styles": {
+        "realistic": "Realistic",
+        "artistic": "Artistic",
+        "cartoon": "Cartoon",
+        "abstract": "Abstract",
+        "minimal": "Minimal"
+      },
+      "sizes": {
+        "square": "1:1 Square",
+        "landscape": "16:9 Landscape",
+        "portrait": "9:16 Portrait",
+        "story": "9:16 Story"
+      },
+      "result": "Generated Image"
+    },
+    "video": {
+      "title": "Video Generation",
+      "subtitle": "Create professional videos with AI",
+      "prompt": "Describe your video concept",
+      "placeholder": "A product demo video showing...",
+      "generate": "Generate Video",
+      "generating": "Generating...",
+      "download": "Download",
+      "share": "Share",
+      "preview": "Preview",
+      "edit": "Edit Video",
+      "templates": "Templates",
+      "myVideos": "My Videos",
+      "upload": "Upload Video",
+      "dragDrop": "Drag & drop or click to upload",
+      "formats": "Supports: MP4, MOV, WebM",
+      "duration": "Duration",
+      "quality": "Quality",
+      "aspectRatio": "Aspect Ratio",
+      "durations": {
+        "short": "15 seconds",
+        "medium": "30 seconds",
+        "long": "60 seconds"
+      },
+      "qualities": {
+        "hd": "HD (720p)",
+        "fullhd": "Full HD (1080p)",
+        "4k": "4K (2160p)"
+      },
+      "ratios": {
+        "landscape": "16:9 Landscape",
+        "portrait": "9:16 Portrait",
+        "square": "1:1 Square"
+      },
+      "templates": {
+        "promo": "Promotional",
+        "tutorial": "Tutorial",
+        "social": "Social Media",
+        "ad": "Advertisement"
+      },
+      "result": "Generated Video"
+    },
+    "resume": {
+      "title": "Resume Builder",
+      "subtitle": "Create professional resumes with AI",
+      "personalInfo": "Personal Information",
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "location": "Location",
+      "website": "Website (optional)",
+      "summary": "Professional Summary",
+      "summaryPlaceholder": "Write a brief summary of your professional background...",
+      "experience": "Work Experience",
+      "addExperience": "Add Experience",
+      "company": "Company Name",
+      "position": "Position",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "current": "Current",
+      "description": "Description",
+      "experiencePlaceholder": "Describe your responsibilities and achievements...",
+      "education": "Education",
+      "addEducation": "Add Education",
+      "institution": "Institution Name",
+      "degree": "Degree",
+      "field": "Field of Study",
+      "graduationDate": "Graduation Date",
+      "skills": "Skills",
+      "addSkill": "Add Skill",
+      "skillPlaceholder": "e.g., JavaScript, Project Management",
+      "languages": "Languages",
+      "addLanguage": "Add Language",
+      "languagePlaceholder": "e.g., English, Arabic",
+      "templates": "Resume Templates",
+      "templateNames": {
+        "modern": "Modern",
+        "classic": "Classic",
+        "creative": "Creative",
+        "minimal": "Minimal"
+      },
+      "preview": "Preview",
+      "downloadPDF": "Download PDF",
+      "downloadWord": "Download Word",
+      "clearAll": "Clear All",
+      "aiImprove": "AI Improve",
+      "improving": "Improving with AI...",
+      "generatedSummary": "AI Generated Summary",
+      "remove": "Remove",
+      "section": "Section",
+      "results": {
+        "experience": "Work experience",
+        "education": "Education",
+        "skills": "Skills",
+        "languages": "Languages"
+      }
+    },
+    "social": {
+      "title": "Social Media Manager",
+      "subtitle": "Manage and schedule your social media content",
+      "platforms": "Platforms",
+      "platformNames": {
+        "instagram": "Instagram",
+        "twitter": "Twitter/X",
+        "linkedin": "LinkedIn",
+        "facebook": "Facebook",
+        "tiktok": "TikTok"
+      },
+      "connect": "Connect Account",
+      "disconnect": "Disconnect",
+      "connected": "Connected",
+      "calendar": "Content Calendar",
+      "createPost": "Create Post",
+      "newPost": "New Post",
+      "postContent": "Post Content",
+      "postPlaceholder": "What do you want to share?",
+      "addMedia": "Add Media",
+      "schedule": "Schedule",
+      "publishNow": "Publish Now",
+      "scheduled": "Scheduled",
+      "published": "Published",
+      "draft": "Draft",
+      "analytics": "Analytics",
+      "overview": "Overview",
+      "engagement": "Engagement",
+      "followers": "Followers",
+      "reach": "Reach",
+      "impressions": "Impressions",
+      "growth": "Growth",
+      "content": "Content",
+      "hashtags": "Hashtags",
+      "addHashtag": "Add hashtag",
+      "bestTimes": "Best Posting Times",
+      "suggestions": "Content Suggestions",
+      "aiGenerate": "AI Generate",
+      "generating": "Generating...",
+      "weekView": "Week View",
+      "monthView": "Month View",
+      "days": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      },
+      "months": {
+        "january": "January",
+        "february": "February",
+        "march": "March",
+        "april": "April",
+        "may": "May",
+        "june": "June",
+        "july": "July",
+        "august": "August",
+        "september": "September",
+        "october": "October",
+        "november": "November",
+        "december": "December"
+      }
+    },
+    "code": {
+      "title": "Code Generator",
+      "subtitle": "Generate, explain, and optimize code with AI",
+      "language": "Language",
+      "languages": {
+        "javascript": "JavaScript",
+        "typescript": "TypeScript",
+        "python": "Python",
+        "java": "Java",
+        "cpp": "C++",
+        "html": "HTML",
+        "css": "CSS",
+        "sql": "SQL",
+        "php": "PHP",
+        "ruby": "Ruby",
+        "go": "Go",
+        "rust": "Rust",
+        "swift": "Swift"
+      },
+      "prompt": "Describe what you want to build",
+      "placeholder": "e.g., Create a React component for a todo list...",
+      "generate": "Generate Code",
+      "generating": "Generating...",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "clear": "Clear",
+      "download": "Download",
+      "explain": "Explain Code",
+      "explaining": "Explaining...",
+      "optimize": "Optimize",
+      "optimizing": "Optimizing...",
+      "convert": "Convert to",
+      "tabs": {
+        "generate": "Generate",
+        "explain": "Explain",
+        "debug": "Debug",
+        "convert": "Convert"
+      },
+      "explanation": "Code Explanation",
+      "explanationPlaceholder": "Paste code to explain...",
+      "debugPlaceholder": "Paste code with the error...",
+      "convertFrom": "From",
+      "convertTo": "To",
+      "convertButton": "Convert Code",
+      "result": "Generated Code",
+      "errorPlaceholder": "e.g., TypeError: Cannot read property 'map' of undefined...",
+      "debug": "Debug Code",
+      "debugging": "Debugging...",
+      "bugFound": "Bug Found",
+      "fixSuggestion": "Fix Suggestion",
+      "lineNumbers": "Line numbers",
+      "wrap": "Word wrap"
+    },
+    "chat": {
+      "title": "AI Chatbot",
+      "subtitle": "Get instant answers and creative assistance",
+      "placeholder": "Type your message...",
+      "send": "Send",
+      "thinking": "Thinking...",
+      "clearChat": "Clear Chat",
+      "newChat": "New Chat",
+      "chats": "Chats",
+      "settings": "Settings",
+      "model": "Model",
+      "temperature": "Creativity",
+      "models": {
+        "fast": "Fast (Default)",
+        "balanced": "Balanced",
+        "creative": "Creative"
+      },
+      "suggestions": {
+        "title": "Suggested Prompts",
+        "write": "Write a poem about technology",
+        "explain": "Explain quantum computing in simple terms",
+        "code": "Help me write a Python function",
+        "brainstorm": "Brainstorm startup ideas"
+      },
+      "welcome": "How can I help you today?",
+      "welcomeDesc": "I can help with writing, coding, analysis, and creative tasks.",
+      "code": "Code",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "regenerate": "Regenerate",
+      "thumbsUp": "Helpful",
+      "thumbsDown": "Not helpful",
+      "thinkingProcess": "Thinking process",
+      "sources": "Sources",
+      "noChats": "No previous chats",
+      "deleteChat": "Delete chat",
+      "renameChat": "Rename chat"
+    },
+    "audio": {
+      "title": "Audio & Music Generator",
+      "subtitle": "Create music, voiceovers, and sound effects with AI",
+      "tabs": {
+        "music": "Music",
+        "voiceover": "Voiceover",
+        "effects": "Sound Effects"
+      },
+      "prompt": "Describe the audio you want to create",
+      "placeholder": {
+        "music": "e.g., Upbeat corporate background music, 120 BPM...",
+        "voiceover": "e.g., Professional male voice narrating a product demo...",
+        "effects": "e.g., Rain falling on a window, gentle wind..."
+      },
+      "generate": "Generate Audio",
+      "generating": "Generating...",
+      "play": "Play",
+      "pause": "Pause",
+      "stop": "Stop",
+      "download": "Download",
+      "share": "Share",
+      "trim": "Trim",
+      "volume": "Volume",
+      "speed": "Speed",
+      "duration": "Duration",
+      "format": "Format",
+      "formats": {
+        "mp3": "MP3",
+        "wav": "WAV",
+        "ogg": "OGG",
+        "flac": "FLAC"
+      },
+      "genres": {
+        "corporate": "Corporate",
+        "ambient": "Ambient",
+        "electronic": "Electronic",
+        "cinematic": "Cinematic",
+        "lofi": "Lo-Fi",
+        "jazz": "Jazz",
+        "rock": "Rock",
+        "pop": "Pop"
+      },
+      "voices": {
+        "male": "Male",
+        "female": "Female",
+        "neutral": "Neutral"
+      },
+      "languages": {
+        "english": "English",
+        "arabic": "Arabic",
+        "spanish": "Spanish",
+        "french": "French",
+        "german": "German",
+        "japanese": "Japanese"
+      },
+      "effects": {
+        "nature": "Nature",
+        "urban": "Urban",
+        "abstract": "Abstract",
+        "impact": "Impact",
+        "transition": "Transition",
+        "ambient": "Ambient"
+      },
+      "result": "Generated Audio",
+      "waveform": "Waveform",
+      "timeline": "Timeline",
+      "loop": "Loop",
+      "fadeIn": "Fade In",
+      "fadeOut": "Fade Out",
+      "bpm": "BPM",
+      "key": "Key",
+      "mood": "Mood",
+      "moods": {
+        "happy": "Happy",
+        "sad": "Sad",
+        "energetic": "Energetic",
+        "calm": "Calm",
+        "dramatic": "Dramatic",
+        "mysterious": "Mysterious"
+      }
+    },
+    "translate": {
+      "title": "AI Translator",
+      "subtitle": "Translate text between 100+ languages instantly",
+      "sourceLang": "From",
+      "targetLang": "To",
+      "swap": "Swap Languages",
+      "inputPlaceholder": "Enter text to translate...",
+      "outputPlaceholder": "Translation will appear here...",
+      "translate": "Translate",
+      "translating": "Translating...",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "clear": "Clear",
+      "download": "Download",
+      "upload": "Upload File",
+      "dragDrop": "Drag & drop or click to upload",
+      "supportedFormats": "Supports: TXT, DOCX, PDF",
+      "autoDetect": "Auto Detect",
+      "recentLanguages": "Recent Languages",
+      "savedTranslations": "Saved Translations",
+      "save": "Save Translation",
+      "saved": "Saved!",
+      "history": "Translation History",
+      "characterCount": "characters",
+      "wordCount": "words",
+      "commonPhrases": "Common Phrases",
+      "formality": "Formality",
+      "formalities": {
+        "formal": "Formal",
+        "informal": "Informal",
+        "neutral": "Neutral"
+      },
+      "context": "Context",
+      "contextOptions": {
+        "general": "General",
+        "business": "Business",
+        "technical": "Technical",
+        "medical": "Medical",
+        "legal": "Legal"
+      },
+      "features": {
+        "accuracy": "99% Accuracy",
+        "speed": "Instant Translation",
+        "context": "Context Aware",
+        "pronunciation": "Pronunciation Guide"
+      }
+    },
+    "document": {
+      "title": "Document Analyzer",
+      "subtitle": "Analyze, summarize, and extract insights from documents",
+      "upload": "Upload Document",
+      "dragDrop": "Drag & drop or click to upload",
+      "supportedFormats": "Supports: PDF, DOCX, TXT, MD",
+      "paste": "Or paste text directly",
+      "pastePlaceholder": "Paste your document content here...",
+      "analyze": "Analyze Document",
+      "analyzing": "Analyzing...",
+      "tabs": {
+        "summary": "Summary",
+        "keywords": "Keywords",
+        "sentiment": "Sentiment",
+        "stats": "Statistics"
+      },
+      "summary": {
+        "title": "Document Summary",
+        "brief": "Brief Summary",
+        "detailed": "Detailed Summary",
+        "keyPoints": "Key Points",
+        "generate": "Generate Summary"
+      },
+      "keywords": {
+        "title": "Keywords & Topics",
+        "extract": "Extract Keywords",
+        "topics": "Main Topics",
+        "entities": "Named Entities"
+      },
+      "sentiment": {
+        "title": "Sentiment Analysis",
+        "overall": "Overall Sentiment",
+        "positive": "Positive",
+        "negative": "Negative",
+        "neutral": "Neutral",
+        "mixed": "Mixed",
+        "emotions": "Detected Emotions"
+      },
+      "stats": {
+        "title": "Document Statistics",
+        "words": "Words",
+        "sentences": "Sentences",
+        "paragraphs": "Paragraphs",
+        "readingTime": "Reading Time",
+        "readability": "Readability Score",
+        "complexity": "Complexity Level"
+      },
+      "actions": {
+        "rewrite": "Rewrite",
+        "simplify": "Simplify",
+        "expand": "Expand",
+        "translate": "Translate",
+        "improve": "Improve Writing"
+      },
+      "result": "Analysis Results",
+      "download": "Download Report",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "history": "Analysis History"
+    },
+    "presentation": {
+      "title": "Presentation Maker",
+      "subtitle": "Create professional presentations with AI",
+      "newPresentation": "New Presentation",
+      "templates": "Templates",
+      "templateNames": {
+        "business": "Business",
+        "creative": "Creative",
+        "minimal": "Minimal",
+        "education": "Education",
+        "pitch": "Pitch Deck"
+      },
+      "slides": "Slides",
+      "addSlide": "Add Slide",
+      "slideTypes": {
+        "title": "Title Slide",
+        "content": "Content",
+        "twoColumn": "Two Columns",
+        "imageText": "Image + Text",
+        "chart": "Chart",
+        "quote": "Quote",
+        "blank": "Blank"
+      },
+      "editor": {
+        "title": "Slide Title",
+        "titlePlaceholder": "Enter slide title...",
+        "content": "Content",
+        "contentPlaceholder": "Enter slide content...",
+        "addBullet": "Add Bullet Point",
+        "notes": "Speaker Notes",
+        "notesPlaceholder": "Add speaker notes..."
+      },
+      "design": {
+        "title": "Design",
+        "theme": "Theme",
+        "colors": "Colors",
+        "fonts": "Fonts",
+        "layout": "Layout"
+      },
+      "preview": "Preview",
+      "present": "Present",
+      "presenting": "Presenting...",
+      "exit": "Exit Presentation",
+      "download": "Download",
+      "downloadFormats": {
+        "pdf": "PDF",
+        "pptx": "PowerPoint",
+        "images": "Images (ZIP)"
+      },
+      "share": "Share",
+      "shareLink": "Share Link",
+      "collaborate": "Collaborate",
+      "aiGenerate": "AI Generate Slide",
+      "aiTheme": "Generate Theme",
+      "generating": "Generating...",
+      "outline": "Generate Outline",
+      "outlinePlaceholder": "Describe your presentation topic...",
+      "generateOutline": "Generate Outline",
+      "slideCount": "slides",
+      "duration": "Estimated Duration",
+      "speakerView": "Speaker View",
+      "timer": "Timer",
+      "fullscreen": "Fullscreen"
+    }
+  }
+}
