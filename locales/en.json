@@ -288,6 +288,41 @@
       },
       "result": "Generated Image"
     },
+    "imageToCode": {
+      "title": "Image to Code",
+      "subtitle": "Convert design screenshots into production-ready code",
+      "upload": "Upload Design Screenshot",
+      "dragDrop": "Drag & drop or click to upload",
+      "formats": "Supports: JPG, PNG, WebP, SVG",
+      "changeImage": "Change Image",
+      "outputFormat": "Output Format",
+      "formats": {
+        "html": "HTML/CSS",
+        "react": "React",
+        "vue": "Vue.js",
+        "nextjs": "Next.js",
+        "svelte": "Svelte",
+        "css": "CSS Only"
+      },
+      "analyze": "Analyze & Generate Code",
+      "analyzing": "Analyzing Design...",
+      "result": "Generated Code",
+      "analysisTitle": "Design Analysis",
+      "codeTab": "Code",
+      "analysisTab": "Analysis",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "download": "Download",
+      "layout": "Layout Type",
+      "colors": "Color Palette",
+      "fonts": "Typography",
+      "elements": "Detected Elements",
+      "detailedAnalysis": "Detailed Analysis",
+      "error": {
+        "noImage": "Please upload an image first",
+        "apiError": "Failed to analyze image. Please try again."
+      }
+    },
     "video": {
       "title": "Video Generation",
       "subtitle": "Create professional videos with AI",

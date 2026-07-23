@@ -2,14 +2,14 @@
 
 import { ReactNode } from 'react';
 import Link from 'next/link';
-import { PenTool, Image, Video, FileText, Share2, Code, MessageCircle, Music, Languages, FileSearch, Presentation, ArrowLeft } from 'lucide-react';
+import { PenTool, Image, Video, FileText, Share2, Code, MessageCircle, Music, Languages, FileSearch, Presentation, ArrowLeft, ImagePlus } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ToolsLayoutProps {
   children: ReactNode;
   locale: string;
   messages: Record<string, unknown>;
-  activeTool: 'text' | 'image' | 'video' | 'resume' | 'social' | 'code' | 'chat' | 'audio' | 'translate' | 'document' | 'presentation';
+  activeTool: 'text' | 'image' | 'image-to-code' | 'video' | 'resume' | 'social' | 'code' | 'chat' | 'audio' | 'translate' | 'document' | 'presentation';
 }
 
 export function ToolsLayout({ children, locale, messages, activeTool }: ToolsLayoutProps) {
@@ -20,6 +20,7 @@ export function ToolsLayout({ children, locale, messages, activeTool }: ToolsLay
   const tools = [
     { id: 'text' as const, label: (t.text as Record<string, string>).title, icon: PenTool, href: `/${locale}/tools/text` },
     { id: 'image' as const, label: (t.image as Record<string, string>).title, icon: Image, href: `/${locale}/tools/image` },
+    { id: 'image-to-code' as const, label: (t['imageToCode'] as Record<string, string>)?.title || 'Image to Code', icon: ImagePlus, href: `/${locale}/tools/image-to-code` },
     { id: 'video' as const, label: (t.video as Record<string, string>).title, icon: Video, href: `/${locale}/tools/video` },
     { id: 'audio' as const, label: (t.audio as Record<string, string>).title, icon: Music, href: `/${locale}/tools/audio` },
     { id: 'code' as const, label: (t.code as Record<string, string>).title, icon: Code, href: `/${locale}/tools/code` },

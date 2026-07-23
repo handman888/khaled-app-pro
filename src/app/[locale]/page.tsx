@@ -6,7 +6,11 @@ import { Services } from '@/components/sections/Services';
 import { Pricing } from '@/components/sections/Pricing';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { CTA } from '@/components/sections/CTA';
-import { getMessages, getLocaleDirection } from '@/lib/i18n';
+import { getMessages } from '@/lib/i18n';
+
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'ar' }];
+}
 
 export default async function LocalePage({
   params,
@@ -16,22 +20,19 @@ export default async function LocalePage({
   const { locale } = await params;
   const validLocale = locale === 'ar' ? 'ar' : 'en';
   const messages = await getMessages(validLocale);
-  const direction = getLocaleDirection(validLocale);
 
   return (
-    <html lang={validLocale} dir={direction}>
-      <body className="min-h-screen font-[family-name:var(--font-inter)] antialiased">
-        <Header locale={validLocale} messages={messages} />
-        <main>
-          <Hero locale={validLocale} messages={messages} />
-          <Features locale={validLocale} messages={messages} />
-          <Services locale={validLocale} messages={messages} />
-          <Pricing locale={validLocale} messages={messages} />
-          <Testimonials locale={validLocale} messages={messages} />
-          <CTA locale={validLocale} messages={messages} />
-        </main>
-        <Footer locale={validLocale} messages={messages} />
-      </body>
-    </html>
+    <>
+      <Header locale={validLocale} messages={messages} />
+      <main>
+        <Hero locale={validLocale} messages={messages} />
+        <Features locale={validLocale} messages={messages} />
+        <Services locale={validLocale} messages={messages} />
+        <Pricing locale={validLocale} messages={messages} />
+        <Testimonials locale={validLocale} messages={messages} />
+        <CTA locale={validLocale} messages={messages} />
+      </main>
+      <Footer locale={validLocale} messages={messages} />
+    </>
   );
 }

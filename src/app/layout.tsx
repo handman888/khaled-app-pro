@@ -26,8 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className={`${inter.variable} ${notoSansArabic.variable}`}>
-      {children}
-    </div>
+    <html lang="en" dir="ltr">
+      <body className={`min-h-screen font-[family-name:var(--font-inter)] antialiased ${inter.variable} ${notoSansArabic.variable}`}>
+        {children}
+      </body>
+    </html>
   );
 }

@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { Inter, Noto_Sans_Arabic } from "next/font/google";
+import { getLocaleDirection } from "@/lib/i18n";
 import "../globals.css";
 
 const inter = Inter({
@@ -13,13 +15,32 @@ const notoSansArabic = Noto_Sans_Arabic({
   display: "swap",
 });
 
-export default function LocaleLayout({
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const validLocale = locale === 'ar' ? 'ar' : 'en';
+  return {
+    title: "Smart Design Digital Pro | التصميم الذكي ديجيتال برو",
+    description: "The complete AI platform for text, image, and video design in Arabic and English",
+  };
+}
+
+export default async function LocaleLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+  const validLocale = locale === 'ar' ? 'ar' : 'en';
+  const direction = getLocaleDirection(validLocale);
+
   return (
-    <div className={`${inter.variable} ${notoSansArabic.variable}`}>
+    <div dir={direction} lang={validLocale} className={`${inter.variable} ${notoSansArabic.variable}`}>
       {children}
     </div>
   );

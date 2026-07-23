@@ -288,6 +288,41 @@
       },
       "result": "الصورة المُولدة"
     },
+    "imageToCode": {
+      "title": "تحويل الصورة إلى كود",
+      "subtitle": "تحويل لقطات الشاشة إلى كود جاهز للإنتاج",
+      "upload": "ارفع لقطة شاشة التصميم",
+      "dragDrop": "اسحب وأفلت أو انقر للرفع",
+      "formats": "يدعم: JPG, PNG, WebP, SVG",
+      "changeImage": "تغيير الصورة",
+      "outputFormat": "تنسيق الإخراج",
+      "formats": {
+        "html": "HTML/CSS",
+        "react": "React",
+        "vue": "Vue.js",
+        "nextjs": "Next.js",
+        "svelte": "Svelte",
+        "css": "CSS فقط"
+      },
+      "analyze": "تحليل وتوليد الكود",
+      "analyzing": "جاري تحليل التصميم...",
+      "result": "الكود المُولد",
+      "analysisTitle": "تحليل التصميم",
+      "codeTab": "الكود",
+      "analysisTab": "التحليل",
+      "copy": "نسخ",
+      "copied": "تم النسخ!",
+      "download": "تحميل",
+      "layout": "نوع التخطيط",
+      "colors": "لوحة الألوان",
+      "fonts": "الخطوط",
+      "elements": "العناصر المكتشفة",
+      "detailedAnalysis": "تحليل مفصل",
+      "error": {
+        "noImage": "يرجى رفع صورة أولاً",
+        "apiError": "فشل تحليل الصورة. يرجى المحاولة مرة أخرى."
+      }
+    },
     "video": {
       "title": "توليد الفيديو",
       "subtitle": "أنشئ فيديوهات احترافية بالذكاء الاصطناعي",

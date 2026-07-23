@@ -16,6 +16,12 @@ export function Features({ locale, messages }: FeaturesProps) {
   const imageStudio = t.imageStudio as Record<string, unknown>;
   const videoProduction = t.videoProduction as Record<string, unknown>;
 
+  const colorClasses: Record<string, { bg: string; text: string }> = {
+    accent: { bg: 'bg-accent/10', text: 'text-accent' },
+    'accent-secondary': { bg: 'bg-accent-secondary/10', text: 'text-accent-secondary' },
+    'accent-glow': { bg: 'bg-accent-glow/10', text: 'text-accent-glow' },
+  };
+
   const features = [
     {
       icon: PenTool,
@@ -77,9 +83,9 @@ export function Features({ locale, messages }: FeaturesProps) {
             >
               {/* Icon */}
               <div
-                className={`mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-${feature.color}/10`}
+                className={`mb-6 flex h-14 w-14 items-center justify-center rounded-xl ${colorClasses[feature.color].bg}`}
               >
-                <feature.icon className={`h-7 w-7 text-${feature.color}`} />
+                <feature.icon className={`h-7 w-7 ${colorClasses[feature.color].text}`} />
               </div>
 
               {/* Content */}
@@ -94,7 +100,7 @@ export function Features({ locale, messages }: FeaturesProps) {
               <ul className="space-y-3">
                 {feature.items.map((item: string, i: number) => (
                   <li key={i} className="flex items-center gap-3 text-sm text-n-700">
-                    <Check className={`h-4 w-4 flex-shrink-0 text-${feature.color}`} />
+                    <Check className={`h-4 w-4 flex-shrink-0 ${colorClasses[feature.color].text}`} />
                     {item}
                   </li>
                 ))}
