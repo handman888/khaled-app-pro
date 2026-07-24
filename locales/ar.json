@@ -293,7 +293,7 @@
       "subtitle": "تحويل لقطات الشاشة إلى كود جاهز للإنتاج",
       "upload": "ارفع لقطة شاشة التصميم",
       "dragDrop": "اسحب وأفلت أو انقر للرفع",
-      "formats": "يدعم: JPG, PNG, WebP, SVG",
+      "supportedFormats": "يدعم: JPG, PNG, WebP, SVG",
       "changeImage": "تغيير الصورة",
       "outputFormat": "تنسيق الإخراج",
       "formats": {
@@ -334,7 +334,7 @@
       "share": "مشاركة",
       "preview": "معاينة",
       "edit": "تعديل الفيديو",
-      "templates": "القوالب",
+      "templatesLabel": "القوالب",
       "myVideos": "فيديوهاتي",
       "upload": "رفع فيديو",
       "dragDrop": "اسحب وأفلت أو انقر للرفع",

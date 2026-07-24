@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { getMessages } from '@/lib/i18n';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://khaled-app-pro.vercel.app';
+const GITHUB_URL = process.env.NEXT_PUBLIC_GITHUB_URL || '';
+
 export default async function AdminPage({
   params,
 }: {
@@ -116,7 +119,7 @@ export default async function AdminPage({
             </a>
 
             <a
-              href="https://github.com/handman888/khaled-app-pro"
+              href={GITHUB_URL || '#'}
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl border border-n-200 bg-white p-6 hover:border-accent hover:shadow-lg transition-all"
@@ -161,19 +164,19 @@ export default async function AdminPage({
                 {[
                   {
                     name: 'Your Website',
-                    url: 'https://khaled-app-pro.vercel.app',
+                    url: SITE_URL,
                     purpose: isRtl ? 'موقعك الرسمي' : 'Your live website',
                     emoji: '🌐'
                   },
                   {
                     name: 'Admin Dashboard',
-                    url: 'https://khaled-app-pro.vercel.app/en/admin',
+                    url: `${SITE_URL}/${validLocale}/admin`,
                     purpose: isRtl ? 'لوحة التحكم' : 'Admin panel',
                     emoji: '⚙️'
                   },
                   {
                     name: 'Arabic Version',
-                    url: 'https://khaled-app-pro.vercel.app/ar',
+                    url: `${SITE_URL}/ar`,
                     purpose: isRtl ? 'النسخة العربية' : 'Arabic version',
                     emoji: '🌍'
                   },
@@ -189,12 +192,12 @@ export default async function AdminPage({
                     purpose: isRtl ? 'إدارة النشر والإعدادات' : 'Deployment & settings',
                     emoji: '🚀'
                   },
-                  {
+                  ...(GITHUB_URL ? [{
                     name: 'GitHub',
-                    url: 'https://github.com/handman888/khaled-app-pro',
+                    url: GITHUB_URL,
                     purpose: isRtl ? 'شفرة المصدر' : 'Source code',
                     emoji: '💻'
-                  },
+                  }] : []),
                 ].map((link, i) => (
                   <tr key={i} className="hover:bg-n-50">
                     <td className="px-6 py-4">
@@ -257,18 +260,16 @@ export default async function AdminPage({
               {isRtl ? 'هل تحتاج مساعدة؟' : 'Need Help?'}
             </h3>
             <p className="text-sm text-n-600 mb-4">
-              {isRtl 
-                ? 'إذا واجهت أي مشكلة أو تريد تطوير الموقع، أنا هنا لمساعدتك.'
-                : 'If you face any issues or want to improve the website, I\'m here to help.'}
+              {isRtl
+                ? 'إذا واجهت أي مشكلة أو تريد تطوير الموقع، تواصل معنا.'
+                : 'If you face any issues or want to improve the website, contact us.'}
             </p>
-            <div className="flex flex-wrap gap-3">
-              <span className="rounded-lg bg-white border border-n-200 px-4 py-2 text-sm text-n-700">
-                📧 KHALDEN90909@GMAIL.COM
-              </span>
-              <span className="rounded-lg bg-white border border-n-200 px-4 py-2 text-sm text-n-700">
-                🐙 handman888
-              </span>
-            </div>
+            <Link
+              href={`/${validLocale}/contact`}
+              className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white hover:bg-accent/90"
+            >
+              {isRtl ? 'تواصل معنا' : 'Contact Us'}
+            </Link>
           </div>
         </main>
     </>

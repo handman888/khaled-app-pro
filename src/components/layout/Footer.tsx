@@ -19,6 +19,26 @@ export function Footer({ locale, messages }: FooterProps) {
   const rights = t.rights as string;
   const madeWith = t.madeWith as string;
 
+  // Map footer link labels to actual routes
+  const productHrefs: Record<string, string> = {
+    Features: `/${locale}/#features`,
+    Pricing: `/${locale}/pricing`,
+    API: `/${locale}/tools`,
+    Integrations: `/${locale}/tools`,
+  };
+  const resourceHrefs: Record<string, string> = {
+    Blog: `/${locale}/about`,
+    Tutorials: `/${locale}/tools`,
+    Documentation: `/${locale}/about`,
+    Community: `/${locale}/contact`,
+  };
+  const companyHrefs: Record<string, string> = {
+    About: `/${locale}/about`,
+    Careers: `/${locale}/contact`,
+    Contact: `/${locale}/contact`,
+    Privacy: `/${locale}/about`,
+  };
+
   return (
     <footer className="border-t border-n-200 bg-white">
       <div className="container-custom py-12 md:py-16">
@@ -70,7 +90,7 @@ export function Footer({ locale, messages }: FooterProps) {
               {productLinks.map((link: string) => (
                 <li key={link}>
                   <Link
-                    href="/"
+                    href={productHrefs[link] || `/${locale}`}
                     className="text-sm text-n-600 transition-colors hover:text-n-900"
                   >
                     {link}
@@ -89,7 +109,7 @@ export function Footer({ locale, messages }: FooterProps) {
               {resourceLinks.map((link: string) => (
                 <li key={link}>
                   <Link
-                    href="/"
+                    href={resourceHrefs[link] || `/${locale}`}
                     className="text-sm text-n-600 transition-colors hover:text-n-900"
                   >
                     {link}
@@ -108,7 +128,7 @@ export function Footer({ locale, messages }: FooterProps) {
               {companyLinks.map((link: string) => (
                 <li key={link}>
                   <Link
-                    href="/"
+                    href={companyHrefs[link] || `/${locale}`}
                     className="text-sm text-n-600 transition-colors hover:text-n-900"
                   >
                     {link}

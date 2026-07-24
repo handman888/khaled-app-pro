@@ -91,7 +91,7 @@ export function VideoTool({ locale, messages }: VideoToolProps) {
         {/* Templates */}
         <div>
           <label className="mb-3 block text-sm font-medium text-n-700">
-            {t.templates as string}
+            {t.templatesLabel as string}
           </label>
           <div className="grid grid-cols-2 gap-2">
             {Object.entries(templates).map(([key, label]) => (

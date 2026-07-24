@@ -293,7 +293,7 @@
       "subtitle": "Convert design screenshots into production-ready code",
       "upload": "Upload Design Screenshot",
       "dragDrop": "Drag & drop or click to upload",
-      "formats": "Supports: JPG, PNG, WebP, SVG",
+      "supportedFormats": "Supports: JPG, PNG, WebP, SVG",
       "changeImage": "Change Image",
       "outputFormat": "Output Format",
       "formats": {
@@ -334,7 +334,7 @@
       "share": "Share",
       "preview": "Preview",
       "edit": "Edit Video",
-      "templates": "Templates",
+      "templatesLabel": "Templates",
       "myVideos": "My Videos",
       "upload": "Upload Video",
       "dragDrop": "Drag & drop or click to upload",

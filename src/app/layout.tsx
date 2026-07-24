@@ -26,7 +26,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr">
+    <html lang="en" dir="ltr" suppressHydrationWarning>
+      <head>
+        {/* Dynamically set lang/dir based on locale – overwritten by locale layout */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var path = window.location.pathname;
+                var seg = path.split('/').filter(Boolean)[0];
+                if (seg === 'ar') {
+                  document.documentElement.lang = 'ar';
+                  document.documentElement.dir = 'rtl';
+                } else {
+                  document.documentElement.lang = 'en';
+                  document.documentElement.dir = 'ltr';
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className={`min-h-screen font-[family-name:var(--font-inter)] antialiased ${inter.variable} ${notoSansArabic.variable}`}>
         {children}
       </body>

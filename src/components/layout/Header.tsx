@@ -18,10 +18,10 @@ export function Header({ locale, messages }: HeaderProps) {
 
   const navItems = [
     { href: `/${locale}/tools`, label: toolsNav },
-    { href: '/#features', label: t.features },
-    { href: '/pricing', label: t.pricing },
-    { href: '/about', label: t.about },
-    { href: '/contact', label: t.contact },
+    { href: `/${locale}/#features`, label: t.features },
+    { href: `/${locale}/pricing`, label: t.pricing },
+    { href: `/${locale}/about`, label: t.about },
+    { href: `/${locale}/contact`, label: t.contact },
   ];
 
   const switchLocale = () => {
@@ -103,13 +103,13 @@ export function Header({ locale, messages }: HeaderProps) {
             {locale === 'en' ? 'عربي' : 'EN'}
           </button>
           <Link
-            href="/"
+            href={`/${locale}/tools`}
             className="text-sm font-medium text-n-600 transition-colors hover:text-n-900"
           >
             {t.login}
           </Link>
           <Link
-            href="/"
+            href={`/${locale}/tools`}
             className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition-all hover:bg-accent/90 hover:shadow-md"
           >
             {t.getStarted}
@@ -158,7 +158,7 @@ export function Header({ locale, messages }: HeaderProps) {
               {locale === 'en' ? 'العربية' : 'English'}
             </button>
             <Link
-              href="/"
+              href={`/${locale}/tools`}
               className="rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-medium text-white"
             >
               {t.getStarted}
