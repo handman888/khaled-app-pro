@@ -33,6 +33,7 @@ export function ImageToCodeTool({ locale, messages }: ImageToCodeToolProps) {
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [outputFormat, setOutputFormat] = useState<OutputFormat>('html');
+  const [quality, setQuality] = useState<'high' | 'fast'>('high');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [copied, setCopied] = useState(false);
@@ -63,6 +64,7 @@ export function ImageToCodeTool({ locale, messages }: ImageToCodeToolProps) {
       const formData = new FormData();
       formData.append('image', imageFile);
       formData.append('format', outputFormat);
+      formData.append('quality', quality);
 
       const response = await fetch('/api/analyze-image', {
         method: 'POST',
@@ -208,6 +210,43 @@ export function ImageToCodeTool({ locale, messages }: ImageToCodeToolProps) {
                 {(t.formats as Record<string, string>)?.[format] || format.toUpperCase()}
               </button>
             ))}
+          </div>
+        </div>
+
+        {/* Quality Selection */}
+        <div>
+          <label className="mb-3 block text-sm font-medium text-n-700">
+            {locale === 'ar' ? 'جودة التحليل' : 'Analysis Quality'}
+          </label>
+          <div className="flex gap-3">
+            <button
+              onClick={() => setQuality('high')}
+              className={cn(
+                'flex-1 rounded-lg border px-4 py-3 text-sm font-medium transition-all',
+                quality === 'high'
+                  ? 'border-accent bg-accent text-white'
+                  : 'border-n-200 text-n-700 hover:border-n-300 hover:bg-n-100'
+              )}
+            >
+              <div className="text-left">
+                <div className="font-semibold">{locale === 'ar' ? 'عالية الجودة' : 'High Quality'}</div>
+                <div className="mt-0.5 text-xs opacity-80">{locale === 'ar' ? 'تفاصيل أكثر، أكواد أطول' : 'More detail, longer code'}</div>
+              </div>
+            </button>
+            <button
+              onClick={() => setQuality('fast')}
+              className={cn(
+                'flex-1 rounded-lg border px-4 py-3 text-sm font-medium transition-all',
+                quality === 'fast'
+                  ? 'border-accent bg-accent text-white'
+                  : 'border-n-200 text-n-700 hover:border-n-300 hover:bg-n-100'
+              )}
+            >
+              <div className="text-left">
+                <div className="font-semibold">{locale === 'ar' ? 'سريع' : 'Fast'}</div>
+                <div className="mt-0.5 text-xs opacity-80">{locale === 'ar' ? 'أسرع، أقل تكلفة' : 'Faster, lower cost'}</div>
+              </div>
+            </button>
           </div>
         </div>
 

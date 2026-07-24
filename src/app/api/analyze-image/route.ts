@@ -49,6 +49,7 @@ export async function POST(request: NextRequest) {
     const formData = await request.formData();
     const imageFile = formData.get('image') as File | null;
     const outputFormat = (formData.get('format') as string) || 'html';
+    const quality = (formData.get('quality') as string) || 'high';
 
     if (!imageFile) {
       return NextResponse.json({
@@ -88,7 +89,7 @@ export async function POST(request: NextRequest) {
     const mimeType = imageFile.type || 'image/png';
 
     // Analyze image and generate code using OpenAI Vision
-    const analysisPrompt = getAnalysisPrompt(outputFormat);
+    const analysisPrompt = getAnalysisPrompt(outputFormat, quality);
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -101,7 +102,7 @@ export async function POST(request: NextRequest) {
         messages: [
           {
             role: 'system',
-            content: 'You are an expert web developer and UI/UX designer. Analyze the provided image with extreme precision and generate production-ready code that perfectly recreates the design. Pay attention to every detail: colors, fonts, spacing, layouts, shadows, borders, gradients, and responsive behavior.'
+            content: 'You are an expert web developer and UI/UX designer with 15+ years of experience. Analyze the provided image with extreme precision and generate production-ready code that perfectly recreates the design. Pay attention to every detail: colors (exact hex codes), fonts, spacing (exact pixel values), layouts, shadows, borders, gradients, and responsive behavior. The code should be clean, well-organized, and follow best practices.'
           },
           {
             role: 'user',
@@ -114,14 +115,14 @@ export async function POST(request: NextRequest) {
                 type: 'image_url',
                 image_url: {
                   url: `data:${mimeType};base64,${base64Image}`,
-                  detail: 'high'
+                  detail: quality === 'high' ? 'high' : 'low'
                 }
               }
             ]
           }
         ],
-        max_tokens: 4000,
-        temperature: 0.2
+        max_tokens: quality === 'high' ? 8000 : 4000,
+        temperature: 0
       })
     });
 
@@ -178,17 +179,32 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function getAnalysisPrompt(format: string): string {
+function getAnalysisPrompt(format: string, quality: string): string {
+  const isHighQuality = quality === 'high';
+
+  const highQualityInstructions = `
+10. Add smooth transitions and animations where appropriate
+11. Include hover states and focus states for all interactive elements
+12. Use CSS custom properties (variables) for consistent theming`;
+
+  const highQualityRequirements = `
+- Include detailed responsive breakpoints
+- Add micro-interactions and transitions
+- Use semantic HTML5 elements`;
+
   const basePrompt = `Analyze this image with extreme precision and generate code that recreates it exactly.
 
 IMPORTANT INSTRUCTIONS:
 1. Identify ALL visual elements: text, buttons, icons, images, containers, layouts
-2. Extract exact colors (use hex codes), fonts, sizes, spacing, and shadows
-3. Note the complete layout structure (flex, grid, absolute positioning)
-4. Identify all interactive elements and their states
-5. Make the code responsive for mobile, tablet, and desktop
-6. Use modern CSS practices (Flexbox, Grid, CSS Variables)
-7. Include proper semantic HTML structure
+2. Extract exact colors (use hex codes like #FF5733, not color names)
+3. Extract exact font families, sizes (in px/rem), weights (100-900), and line heights
+4. Extract exact spacing values (margins, padding, gaps in px/rem)
+5. Note the complete layout structure (flex, grid, absolute positioning)
+6. Identify all interactive elements and their states (hover, active, focus)
+7. Make the code responsive for mobile, tablet, and desktop
+8. Use modern CSS practices (Flexbox, Grid, CSS Variables)
+9. Include proper semantic HTML structure with accessibility attributes
+${isHighQuality ? highQualityInstructions : ''}
 
 ANALYSIS REQUIREMENTS:
 - List every visible element with its exact position
@@ -198,6 +214,7 @@ ANALYSIS REQUIREMENTS:
 - Describe spacing and alignment patterns
 - Identify any shadows, borders, or visual effects
 - Note hover states and interactive elements
+${isHighQuality ? highQualityRequirements : ''}
 
 `;
 
@@ -205,22 +222,26 @@ ANALYSIS REQUIREMENTS:
     case 'react':
       return basePrompt + `Generate a complete React component using TypeScript and Tailwind CSS that recreates this design.
 Include:
-- Proper TypeScript interfaces for props
-- Reusable component structure
-- Tailwind CSS classes for styling
-- Responsive design utilities
-- Accessible HTML elements
+- Proper TypeScript interfaces for props with JSDoc comments
+- Reusable component structure with clear separation of concerns
+- Tailwind CSS classes for styling (use arbitrary values like px-[14px] for exact spacing)
+- Responsive design with mobile-first approach (sm:, md:, lg: breakpoints)
+- Accessible HTML elements with proper ARIA attributes
+- Smooth transitions for hover/focus states
+- CSS variables for theme colors if needed
 
 Return ONLY the code in a single code block with proper formatting.`;
 
     case 'vue':
       return basePrompt + `Generate a complete Vue.js single-file component that recreates this design.
 Include:
-- Template section with HTML structure
-- Script section with proper TypeScript
+- Template section with semantic HTML structure
+- Script section with proper TypeScript (defineProps, defineEmits)
 - Style section with scoped CSS or Tailwind
-- Responsive design
-- Accessible HTML elements
+- Responsive design with breakpoints
+- Accessible HTML elements with ARIA attributes
+- Transitions and animations where appropriate
+- Event handlers for interactive elements
 
 Return ONLY the code in a single code block with proper formatting.`;
 
@@ -228,14 +249,15 @@ Return ONLY the code in a single code block with proper formatting.`;
       return basePrompt + `Generate a Next.js App Router component using TypeScript and Tailwind CSS that recreates this design.
 Include:
 - 'use client' directive for client components (if interactive)
-- Proper TypeScript interfaces for props
+- Proper TypeScript interfaces for props with documentation
 - Next.js App Router conventions (app directory structure)
-- Tailwind CSS classes for styling
-- next/image for any images (with alt text)
+- Tailwind CSS classes for styling (use arbitrary values for exact values)
+- next/image for any images (with alt text and proper sizing)
 - next/link for any navigation links
-- Responsive design with Tailwind responsive utilities
+- Responsive design with Tailwind responsive utilities (sm:, md:, lg:)
 - Accessible HTML elements with proper ARIA attributes
 - Server Component by default, Client Component only when needed
+- Proper metadata for SEO if applicable
 
 Return ONLY the code in a single code block with proper formatting.`;
 
@@ -243,11 +265,11 @@ Return ONLY the code in a single code block with proper formatting.`;
       return basePrompt + `Generate a Svelte component using TypeScript that recreates this design.
 Include:
 - Svelte 5 syntax with $props() for reactive state
-- TypeScript interfaces for props
+- TypeScript interfaces for props with documentation
 - Scoped CSS styles (in <style> block)
 - Tailwind CSS classes if applicable
-- Responsive design
-- Accessible HTML elements
+- Responsive design with media queries
+- Accessible HTML elements with ARIA attributes
 - Svelte transitions/animations where appropriate
 - Event handlers for interactive elements
 
@@ -256,22 +278,27 @@ Return ONLY the code in a single code block with proper formatting.`;
     case 'css':
       return basePrompt + `Generate the HTML and CSS needed to recreate this design.
 Include:
-- Semantic HTML structure
-- Clean, well-organized CSS
-- CSS variables for colors and spacing
-- Responsive media queries
-- Modern CSS features (Flexbox, Grid)
+- Semantic HTML structure with proper nesting
+- Clean, well-organized CSS with comments
+- CSS variables for colors, spacing, and typography
+- Responsive media queries (mobile, tablet, desktop)
+- Modern CSS features (Flexbox, Grid, clamp(), min(), max())
+- Smooth transitions for interactive states
+- Proper box-sizing and reset styles
 
 Return the code in a single code block with HTML and CSS together.`;
 
     default: // html
       return basePrompt + `Generate complete HTML with inline CSS or a style block that recreates this design.
 Include:
-- Full HTML5 document structure
-- Inline or embedded CSS
+- Full HTML5 document structure with proper meta tags
+- Embedded CSS in a <style> block (well-organized with comments)
+- CSS variables for theming
 - Responsive design with media queries
-- Semantic HTML elements
-- Accessibility attributes
+- Semantic HTML elements (header, nav, main, section, footer)
+- Accessibility attributes (aria-labels, roles, alt text)
+- Smooth transitions for hover/focus states
+- Proper box-sizing and spacing
 
 Return ONLY the code in a single code block with proper formatting.`;
   }
