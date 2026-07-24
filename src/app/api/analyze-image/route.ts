@@ -50,6 +50,12 @@ export async function POST(request: NextRequest) {
     const imageFile = formData.get('image') as File | null;
     const outputFormat = (formData.get('format') as string) || 'html';
     const quality = (formData.get('quality') as string) || 'high';
+    let customization: Record<string, string> = {};
+    try {
+      customization = JSON.parse((formData.get('customization') as string) || '{}');
+    } catch {
+      customization = {};
+    }
 
     if (!imageFile) {
       return NextResponse.json({
@@ -89,7 +95,7 @@ export async function POST(request: NextRequest) {
     const mimeType = imageFile.type || 'image/png';
 
     // Analyze image and generate code using OpenAI Vision
-    const analysisPrompt = getAnalysisPrompt(outputFormat, quality);
+    const analysisPrompt = getAnalysisPrompt(outputFormat, quality, customization);
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -179,8 +185,38 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function getAnalysisPrompt(format: string, quality: string): string {
+function getAnalysisPrompt(format: string, quality: string, customization: Record<string, string>): string {
   const isHighQuality = quality === 'high';
+
+  // Build customization instructions
+  const customInstructions: string[] = [];
+  if (customization.primaryColor) {
+    customInstructions.push(`- Use ${customization.primaryColor} as the primary color`);
+  }
+  if (customization.secondaryColor) {
+    customInstructions.push(`- Use ${customization.secondaryColor} as the secondary color`);
+  }
+  if (customization.fontFamily) {
+    customInstructions.push(`- Use "${customization.fontFamily}" as the font family`);
+  }
+  if (customization.cssFramework && customization.cssFramework !== 'tailwind') {
+    const frameworkMap: Record<string, string> = {
+      'css': 'plain CSS with no frameworks',
+      'styled-components': 'Styled Components',
+      'css-modules': 'CSS Modules',
+    };
+    customInstructions.push(`- Use ${frameworkMap[customization.cssFramework] || customization.cssFramework} for styling`);
+  }
+  if (customization.componentLibrary) {
+    customInstructions.push(`- Use ${customization.componentLibrary} component library`);
+  }
+  if (customization.customInstructions) {
+    customInstructions.push(`- Additional instructions: ${customization.customInstructions}`);
+  }
+
+  const customizationSection = customInstructions.length > 0
+    ? `\nCUSTOMIZATION REQUIREMENTS:\n${customInstructions.join('\n')}\n`
+    : '';
 
   const highQualityInstructions = `
 10. Add smooth transitions and animations where appropriate
@@ -205,7 +241,7 @@ IMPORTANT INSTRUCTIONS:
 8. Use modern CSS practices (Flexbox, Grid, CSS Variables)
 9. Include proper semantic HTML structure with accessibility attributes
 ${isHighQuality ? highQualityInstructions : ''}
-
+${customizationSection}
 ANALYSIS REQUIREMENTS:
 - List every visible element with its exact position
 - Extract all text content exactly as shown

@@ -26,6 +26,16 @@ interface ApiError {
 }
 
 type OutputFormat = 'html' | 'react' | 'vue' | 'nextjs' | 'svelte' | 'css';
+type CSSFramework = 'tailwind' | 'css' | 'styled-components' | 'css-modules';
+
+interface CustomizationOptions {
+  primaryColor: string;
+  secondaryColor: string;
+  fontFamily: string;
+  cssFramework: CSSFramework;
+  customInstructions: string;
+  componentLibrary: string;
+}
 
 export function ImageToCodeTool({ locale, messages }: ImageToCodeToolProps) {
   const t = (messages.tools as Record<string, Record<string, unknown>>).imageToCode as Record<string, unknown>;
@@ -39,6 +49,15 @@ export function ImageToCodeTool({ locale, messages }: ImageToCodeToolProps) {
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState<'code' | 'analysis'>('code');
   const [error, setError] = useState<string | null>(null);
+  const [showCustomization, setShowCustomization] = useState(false);
+  const [customization, setCustomization] = useState<CustomizationOptions>({
+    primaryColor: '',
+    secondaryColor: '',
+    fontFamily: '',
+    cssFramework: 'tailwind',
+    customInstructions: '',
+    componentLibrary: '',
+  });
 
   const handleUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -65,6 +84,7 @@ export function ImageToCodeTool({ locale, messages }: ImageToCodeToolProps) {
       formData.append('image', imageFile);
       formData.append('format', outputFormat);
       formData.append('quality', quality);
+      formData.append('customization', JSON.stringify(customization));
 
       const response = await fetch('/api/analyze-image', {
         method: 'POST',
@@ -249,6 +269,148 @@ export function ImageToCodeTool({ locale, messages }: ImageToCodeToolProps) {
             </button>
           </div>
         </div>
+
+        {/* Customization Toggle */}
+        <button
+          onClick={() => setShowCustomization(!showCustomization)}
+          className="flex w-full items-center justify-center gap-2 rounded-lg border border-n-200 px-4 py-2.5 text-sm font-medium text-n-600 transition-colors hover:border-n-300 hover:bg-n-50"
+        >
+          <Layers className="h-4 w-4" />
+          {showCustomization
+            ? (locale === 'ar' ? 'إخفاء التخصيص' : 'Hide Customization')
+            : (locale === 'ar' ? 'تخصيص المخرجات' : 'Customize Output')}
+        </button>
+
+        {/* Customization Panel */}
+        {showCustomization && (
+          <div className="rounded-xl border border-n-200 bg-n-50 p-4 space-y-4">
+            <h4 className="text-sm font-semibold text-n-800">
+              {locale === 'ar' ? 'تخصيص الكود المُولد' : 'Customize Generated Code'}
+            </h4>
+
+            {/* Colors */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="mb-1 block text-xs font-medium text-n-600">
+                  {locale === 'ar' ? 'اللون الأساسي' : 'Primary Color'}
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="color"
+                    value={customization.primaryColor || '#4F46E5'}
+                    onChange={(e) => setCustomization({ ...customization, primaryColor: e.target.value })}
+                    className="h-9 w-9 cursor-pointer rounded border border-n-200"
+                  />
+                  <input
+                    type="text"
+                    value={customization.primaryColor}
+                    onChange={(e) => setCustomization({ ...customization, primaryColor: e.target.value })}
+                    placeholder="#4F46E5"
+                    className="flex-1 rounded-lg border border-n-200 px-3 py-1.5 text-xs text-n-700 placeholder-n-400"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="mb-1 block text-xs font-medium text-n-600">
+                  {locale === 'ar' ? 'اللون الثانوي' : 'Secondary Color'}
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="color"
+                    value={customization.secondaryColor || '#7C3AED'}
+                    onChange={(e) => setCustomization({ ...customization, secondaryColor: e.target.value })}
+                    className="h-9 w-9 cursor-pointer rounded border border-n-200"
+                  />
+                  <input
+                    type="text"
+                    value={customization.secondaryColor}
+                    onChange={(e) => setCustomization({ ...customization, secondaryColor: e.target.value })}
+                    placeholder="#7C3AED"
+                    className="flex-1 rounded-lg border border-n-200 px-3 py-1.5 text-xs text-n-700 placeholder-n-400"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Font */}
+            <div>
+              <label className="mb-1 block text-xs font-medium text-n-600">
+                {locale === 'ar' ? 'خط المستند' : 'Font Family'}
+              </label>
+              <select
+                value={customization.fontFamily}
+                onChange={(e) => setCustomization({ ...customization, fontFamily: e.target.value })}
+                className="w-full rounded-lg border border-n-200 bg-white px-3 py-2 text-sm text-n-700"
+              >
+                <option value="">{locale === 'ar' ? 'استخدم خط الصورة الأصلي' : "Use image's original font"}</option>
+                <option value="Inter">Inter</option>
+                <option value="Roboto">Roboto</option>
+                <option value="Open Sans">Open Sans</option>
+                <option value="Lato">Lato</option>
+                <option value="Poppins">Poppins</option>
+                <option value="Nunito">Nunito</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="system-ui">System UI</option>
+              </select>
+            </div>
+
+            {/* CSS Framework */}
+            <div>
+              <label className="mb-1 block text-xs font-medium text-n-600">
+                {locale === 'ar' ? 'إطار CSS' : 'CSS Framework'}
+              </label>
+              <div className="flex flex-wrap gap-2">
+                {(['tailwind', 'css', 'styled-components', 'css-modules'] as CSSFramework[]).map((fw) => (
+                  <button
+                    key={fw}
+                    onClick={() => setCustomization({ ...customization, cssFramework: fw })}
+                    className={cn(
+                      'rounded-lg border px-3 py-1.5 text-xs font-medium transition-all',
+                      customization.cssFramework === fw
+                        ? 'border-accent bg-accent text-white'
+                        : 'border-n-200 text-n-600 hover:border-n-300'
+                    )}
+                  >
+                    {fw === 'css' ? 'Plain CSS' : fw === 'css-modules' ? 'CSS Modules' : fw === 'styled-components' ? 'Styled Components' : 'Tailwind CSS'}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Component Library */}
+            <div>
+              <label className="mb-1 block text-xs font-medium text-n-600">
+                {locale === 'ar' ? 'مكتبة المكونات' : 'Component Library'}
+              </label>
+              <select
+                value={customization.componentLibrary}
+                onChange={(e) => setCustomization({ ...customization, componentLibrary: e.target.value })}
+                className="w-full rounded-lg border border-n-200 bg-white px-3 py-2 text-sm text-n-700"
+              >
+                <option value="">{locale === 'ar' ? 'بدون مكتبة' : 'None (vanilla)'}</option>
+                <option value="shadcn/ui">shadcn/ui</option>
+                <option value="MUI (Material UI)">MUI (Material UI)</option>
+                <option value="Ant Design">Ant Design</option>
+                <option value="Chakra UI">Chakra UI</option>
+                <option value="Radix UI">Radix UI</option>
+              </select>
+            </div>
+
+            {/* Custom Instructions */}
+            <div>
+              <label className="mb-1 block text-xs font-medium text-n-600">
+                {locale === 'ar' ? 'تعليمات مخصصة' : 'Custom Instructions'}
+              </label>
+              <textarea
+                value={customization.customInstructions}
+                onChange={(e) => setCustomization({ ...customization, customInstructions: e.target.value })}
+                placeholder={locale === 'ar' ? 'مثال: استخدم ألوان الشركة، أضف دعم RTL، استخدم TypeScript...' : 'e.g., Use brand colors, add RTL support, use TypeScript strict mode...'}
+                rows={3}
+                className="w-full rounded-lg border border-n-200 px-3 py-2 text-sm text-n-700 placeholder-n-400 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
+              />
+            </div>
+          </div>
+        )}
 
         {/* Analyze Button */}
         <button
